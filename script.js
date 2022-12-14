@@ -5,8 +5,33 @@
 
 //Créer les cartes dans le HTML
 
-
-
+    function create_task(name,description,date,label){
+        //creation carte-tache
+        let tasks=document.querySelector(".tasks")
+        let task=document.createElement("div");
+        task.className="tasks__task"
+        tasks.appendChild(task)
+        //creation nom
+        let name_task=document.createElement("h2")
+        name_task.className="tasks__task--name"
+        task.textContent=name
+        task.append(name_task)
+        //creation description
+        let description_task=document.createElement("p")
+        description_task.className="tasks__task--description"
+        description_task.textContent=description
+        task.append(description_task)
+        //creation date-end
+        let date_task=document.createElement("p")
+        date_task.className="tasks__task--date"
+        date_task.textContent=date
+        task.append(date_task)
+        //creation label
+        let label_task=document.createElement("p")
+        label_task.className="Tasks__task--label"
+        label_task.textContent=label
+        task.append(label_task)
+    }
 
 
 //Filtrer
