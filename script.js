@@ -53,6 +53,11 @@ submit.addEventListener('click', recup);
         label_task.className="Tasks__task--label"
         label_task.textContent=label
         task.append(label_task)
+        //temps restant
+        let Time_task=document.createElement("p")
+        Time_task.className="Tasks__task--time"
+        Time_task.textContent=day(date)
+        task.append(Time_task)
     }
 
 
@@ -61,6 +66,18 @@ submit.addEventListener('click', recup);
 
 
 
-
-
 //Trier
+
+
+//retourne le nombre de jours entre maintenant et la date en argument.
+function day(date_end){
+    let date=new Date(date_end)
+    let Now= new Date()
+    let Time=date.getTime()-Now.getTime()
+    let formatTime=Math.ceil((Time/(1000*60*60*24)))
+    return formatTime
+}
+
+
+
+
