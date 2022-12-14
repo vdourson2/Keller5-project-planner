@@ -53,8 +53,6 @@ submit.addEventListener('click', recup);
 
 
 
-
-
 //Trier
 
 

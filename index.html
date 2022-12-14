@@ -24,15 +24,30 @@
                     <label for="Due_date">Due date</label>
                     <input type="date" id="form__due" name="date">
                     <select name="label" id="form__label">
-                        <option value="to do">to do</option>
-                        <option value="doing" selected>doing</option>
-                        <option value="done" selected>done</option>
+                        <option value="to do" selected>to do</option>
+                        <option value="doing">doing</option>
+                        <option value="done">done</option>
                     </select>
                     <button type="button" id="submit">Submit</button>
                 </form>
             </div>
-            <div class="filter">
-
+            <div class="categories">
+                <ul>
+                    <li>
+                        <select name="Sort" id="categories__sort">
+                            <option value="alphabet"></option>
+                            <option value="time" selected></option>
+                        </select>
+                    </li>
+                    <li>
+                        <select name="filter" id="categories__filter">
+                            <option value="All" selected>All</option>
+                            <option value="to do">to do</option>
+                            <option value="doing">doing</option>
+                            <option value="done">done</option>
+                        </select>
+                    </li>
+                </ul>
             </div>
             <div class="tasks">
 
