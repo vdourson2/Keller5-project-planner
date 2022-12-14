@@ -4,10 +4,23 @@ const recup = (e) => {
     let descriptionOr = document.getElementById('form__description').value;
     let dueOr = document.getElementById('form__due').value;
     let labelOr = document.getElementById('form__label').value;
+    document.getElementById("formulaire").reset();
     create_task(nameOr, descriptionOr, dueOr, labelOr);
+    let tache = {
+        name : nameOr,
+        description : descriptionOr,
+        due : dueOr,
+        label : labelOr,
+    }
+    liste.push(tache);
+    console.log(liste);
+    localStorage.setItem("Liste",JSON.stringify(liste));
+    //localStorage.clear();
+
 }
 
 let submit = document.getElementById("submit");
+let liste = [];
 submit.addEventListener('click', recup);
 
 
