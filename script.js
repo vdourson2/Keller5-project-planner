@@ -68,67 +68,91 @@ submit.addEventListener('click', recup);
 
     function create_task(name,description,date,label){
         //creation carte-tache
-        let tasks=document.querySelector(".tasks")
+        let tasks=document.querySelector(".tasks");
         let task=document.createElement("div");
-        task.className="tasks__task"
-        tasks.appendChild(task)
+        task.className="tasks__task";
+        tasks.appendChild(task);
         //creation nom
         let name_task=document.createElement("h2")
         name_task.className="tasks__task--name"
-        name_task.textContent=name
+        task.textContent=name
         task.appendChild(name_task)
         //creation description
-        let description_task=document.createElement("p")
-        description_task.className="tasks__task--description"
-        description_task.textContent=description
-        task.appendChild(description_task)
+        let description_task=document.createElement("p");
+        description_task.className="tasks__task--description";
+        description_task.textContent=description;
+        task.appendChild(description_task);
         //creation date-end
-        let date_task=document.createElement("p")
-        date_task.className="tasks__task--date"
-        date_task.textContent=date
-        task.appendChild(date_task)
+        let date_task=document.createElement("p");
+        date_task.className="tasks__task--date";
+        date_task.textContent=date;
+        task.appendChild(date_task);
         //creation label
         let label_task=document.createElement("p")
         label_task.className="tasks__task--label"
         label_task.textContent=label
         task.appendChild(label_task)
+        task.classList.add(`${label}`);
         //temps restant
-        let Time_task=document.createElement("p")
-        Time_task.className="tasks__task--time"
-        Time_task.textContent=day(date)
-        task.appendChild(Time_task)
+        let Time_task=document.createElement("p");
+        Time_task.className="tasks__task--time";
+        Time_task.textContent=day(date);
+        task.appendChild(Time_task);
+        //ajout du texte à côté du temps restant
+        let texteTpsRestant = document.createElement("span");
+        texteTpsRestant.textContent=" jours restants";
+        Time_task.appendChild(texteTpsRestant);
     }
 
 //Création des classes "doing", "to-do, "done"
-let taskLabel = document.querySelectorAll('.Tasks__task--label');
-console.log(taskLabel);
+let taskLabel = document.querySelectorAll('.tasks__task--label');
+for (let elem of taskLabel){
+    let txtTaskLabel = elem.textContent;
+    if (txtTaskLabel == "to-do") {
+        elem.classList.add("label__to-do");
+    }
+    else if (txtTaskLabel == "doing"){
+        elem.classList.add("label__doing");
+    }
+    else if (txtTaskLabel == "done"){
+        elem.classList.add("label__done");
+    }
+}
 
 //Filtrer
-/*let filter = document.getElementById("categories__filter--select");
-console.log(filter);
+//sélectionner les filtres
+let filter = document.getElementById("categories__filter--select");
+//Appeler l'événement
 filter.addEventListener("change", changeFilter);
-//let cartTask = document.querySelectorAll('.tasks__task');
-//console.log(cartTask);
-let taskLabel = document.querySelectorAll('.Tasks__task--label');
-console.log(taskLabel);
-
+//Fonction de l'événement
 function changeFilter(){
-    let cartTask = document.querySelectorAll('.tasks__task');
-    let taskLabel = document.querySelectorAll('.Tasks__task--label');
-    if (value == "All"){
-        //montrer toutes les cartes
+    let labelToDo = document.querySelectorAll(".to-do");
+    let labelDoing = document.querySelectorAll(".doing");
+    let labelDone = document.querySelectorAll(".done");
+    console.log(labelDoing);
+    for (let elem of filter){
+        if (elem.value == "All"){
+            labelToDo.style.display = "block";
+            labelDoing.style.display = "block";
+            labelDone.style.display = "block";
+        }
+        else if (elem.value == "to-do"){
+            labelToDo.style.display = "block";
+            labelDoing.style.display = "none";
+            labelDone.style.display = "none";
+        }
+        else if (elem.value == "doing"){
+            labelDoing.style.display = "block";
+            labelToDo.style.display = "none";
+            labelDone.style.display = "none";
+        }
+        else if (elem.value == "done"){
+            labelDone.style.display = "block";
+            labelDoing.style.display = "none";
+            labelToDo.style.display = "none";
+        }
     }
-    else if (value == "to-do"){
-        //montrer les cartes To-Do
-
-    }
-    else if (value == "doing"){
-        //montrer les cartes doing
-    }
-    else if (value == "done"){
-        //montrer les cartes done
-    }
-}*/
+}
 
 
 

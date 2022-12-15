@@ -52,7 +52,16 @@ body .header__addition {
 }
 .categories__sort #categories__sort--select {
   text-align: center;
+<<<<<<< HEAD
   appearance: none;
+=======
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+>>>>>>> cb1a2333bbca09ea71574230dcb865ace6df67a7
   border-radius: 0.625em;
   width: 100%;
   height: 100%;
