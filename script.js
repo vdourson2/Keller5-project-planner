@@ -72,36 +72,39 @@ submit.addEventListener('click', recup);
         let task=document.createElement("div");
         task.className="tasks__task";
         tasks.appendChild(task);
+        //Création div de gauche
+        let divGauche = document.createElement("div");
+        task.appendChild(divGauche);
         //creation nom
         let name_task=document.createElement("h2");
         name_task.className="tasks__task--name";
         name_task.textContent=name;
-        task.appendChild(name_task);
+        divGauche.appendChild(name_task);
         //creation description
         let description_task=document.createElement("p");
         description_task.className="tasks__task--description";
         description_task.textContent=description;
-        task.appendChild(description_task);
+        divGauche.appendChild(description_task);
         //creation date-end
         let date_task=document.createElement("p");
         date_task.className="tasks__task--date";
         date_task.textContent=date;
-        task.appendChild(date_task);
+        divGauche.appendChild(date_task);
+        //temps restant
+        let Time_task=document.createElement("p");
+        Time_task.className="tasks__task--time";
+        Time_task.textContent=day(date);
+        divGauche.appendChild(Time_task);
+        //ajout du texte à côté du temps restant
+        let texteTpsRestant = document.createElement("span");
+        texteTpsRestant.textContent=" jours restants";
+        Time_task.appendChild(texteTpsRestant);
         //creation label
         let label_task=document.createElement("p")
         label_task.className="tasks__task--label"
         label_task.textContent=label
         task.appendChild(label_task)
         task.classList.add(`${label}`);
-        //temps restant
-        let Time_task=document.createElement("p");
-        Time_task.className="tasks__task--time";
-        Time_task.textContent=day(date);
-        task.appendChild(Time_task);
-        //ajout du texte à côté du temps restant
-        let texteTpsRestant = document.createElement("span");
-        texteTpsRestant.textContent=" jours restants";
-        Time_task.appendChild(texteTpsRestant);
     }
 
 //Création des classes "doing", "to-do, "done"
@@ -169,6 +172,11 @@ function day(date_end){
     let formatTime=Math.ceil((Time/(1000*60*60*24)))
     return formatTime
 }
+
+
+//Affichage complet des cartes de taches au clic
+
+for (let elements of )
 
 
 
