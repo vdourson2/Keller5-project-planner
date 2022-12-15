@@ -35,11 +35,13 @@ const recup = (e) => {
     let nameOr = document.getElementById('form__name').value;
     let descriptionOr = document.getElementById('form__description').value;
     let dueOr = document.getElementById('form__due').value;
+    console.log(dueOr);
     let labelOr = document.getElementById('form__label').value;
-    //Appel de la fonction de création des cartes dans la div "task."
-    create_task(nameOr, descriptionOr, dueOr, labelOr);
+    console.log(labelOr);
     //Reset des zones d'encodage
     document.getElementById("formulaire").reset();
+    //Appel de la fonction de création des cartes dans la div "task."
+    create_task(nameOr, descriptionOr, dueOr, labelOr);
     
     /*Local storage
     let tache = {
@@ -74,32 +76,35 @@ submit.addEventListener('click', recup);
         let name_task=document.createElement("h2")
         name_task.className="tasks__task--name"
         task.textContent=name
-        task.append(name_task)
+        task.appendChild(name_task)
         //creation description
         let description_task=document.createElement("p")
         description_task.className="tasks__task--description"
         description_task.textContent=description
-        task.append(description_task)
+        task.appendChild(description_task)
         //creation date-end
         let date_task=document.createElement("p")
         date_task.className="tasks__task--date"
         date_task.textContent=date
-        task.append(date_task)
+        task.appendChild(date_task)
         //creation label
         let label_task=document.createElement("p")
-        label_task.className="Tasks__task--label"
+        label_task.className="tasks__task--label"
         label_task.textContent=label
-        task.append(label_task)
+        task.appendChild(label_task)
         //temps restant
         let Time_task=document.createElement("p")
-        Time_task.className="Tasks__task--time"
+        Time_task.className="tasks__task--time"
         Time_task.textContent=day(date)
-        task.append(Time_task)
+        task.appendChild(Time_task)
     }
 
+//Création des classes "doing", "to-do, "done"
+let taskLabel = document.querySelectorAll('.Tasks__task--label');
+console.log(taskLabel);
 
 //Filtrer
-let filter = document.getElementById("categories__filter--select");
+/*let filter = document.getElementById("categories__filter--select");
 console.log(filter);
 filter.addEventListener("change", changeFilter);
 //let cartTask = document.querySelectorAll('.tasks__task');
@@ -123,7 +128,7 @@ function changeFilter(){
     else if (value == "done"){
         //montrer les cartes done
     }
-}
+}*/
 
 
 
