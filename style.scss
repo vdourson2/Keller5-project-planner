@@ -112,12 +112,15 @@ body{
             font-weight: 400;
         }
         &--description, &--date, &--time{
-            padding-left : 3vw;
+            padding-left : 2vw;
             font-weight: 300;
             font-size: 1.2em ;
         }
+        &--description, &--date{
+            display : none;
+        }
         &--label {
-            min-width : 40px;
+            width : 30px;
         }
     }    
 }

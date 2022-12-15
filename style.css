@@ -97,10 +97,13 @@ body .header__addition {
   font-weight: 400;
 }
 .tasks__task--description, .tasks__task--date, .tasks__task--time {
-  padding-left: 3vw;
+  padding-left: 2vw;
   font-weight: 300;
   font-size: 1.2em;
 }
+.tasks__task--description, .tasks__task--date {
+  display: none;
+}
 .tasks__task--label {
-  min-width: 40px;
+  width: 30px;
 }/*# sourceMappingURL=style.css.map */

@@ -78,16 +78,16 @@ submit.addEventListener('click', recup);
         //creation nom
         let name_task=document.createElement("h2");
         name_task.className="tasks__task--name";
-        name_task.textContent=name;
+        name_task.textContent = name;
         divGauche.appendChild(name_task);
         //creation description
         let description_task=document.createElement("p");
-        description_task.className="tasks__task--description";
-        description_task.textContent=description;
+        description_task.className="tasks__task--description displayNone";
+        description_task.textContent = description;
         divGauche.appendChild(description_task);
         //creation date-end
         let date_task=document.createElement("p");
-        date_task.className="tasks__task--date";
+        date_task.className="tasks__task--date displayNone";
         date_task.textContent=date;
         divGauche.appendChild(date_task);
         //temps restant
@@ -105,24 +105,29 @@ submit.addEventListener('click', recup);
         label_task.textContent=label
         task.appendChild(label_task)
         task.classList.add(`${label}`);
+        //Création de l'évènement "agrandir quand on clique"
+        name_task.addEventListener('click', (e) =>{
+            if (description_task.classList.contains("displayNone")){
+                description_task.classList.replace("displayNone","displayBlock");
+                date_task.classList.replace("displayNone","displayBlock");
+                description_task.style.display = "block";
+                date_task.style.display = "block";
+            }
+            else {
+                description_task.classList.replace("displayBlock","displayNone");
+                date_task.classList.replace("displayBlock","displayNone");                
+                description_task.style.display = "none";
+                date_task.style.display = "none";
+            }
+        })
+        name_task.addEventListener("mouseenter", function( ev ) {
+            ev.target.style.cursor = "pointer";
+        })
+        name_task.addEventListener("mouseleave", function( ev ) {
+            ev.target.style.cursor = "default";
+        })
+            
     }
-
-//Création des classes "doing", "to-do, "done"
-/*let taskLabel = document.querySelectorAll('.tasks__task--label');
-for (let elem of taskLabel){
-    let txtTaskLabel = elem.textContent;
-    console.log("Passage")
-    console.log(elem.textContent);
-    if (txtTaskLabel == "to-do") {
-        elem.classList.add("label__to-do");
-    }
-    else if (txtTaskLabel == "doing"){
-        elem.classList.add("label__doing");
-    }
-    else if (txtTaskLabel == "done"){
-        elem.classList.add("label__done");
-    }
-}*/
 
 //Filtrer
 //sélectionner les filtres
@@ -172,11 +177,6 @@ function day(date_end){
     let formatTime=Math.ceil((Time/(1000*60*60*24)))
     return formatTime
 }
-
-
-//Affichage complet des cartes de taches au clic
-
-for (let elements of )
 
 
 
