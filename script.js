@@ -102,7 +102,16 @@ submit.addEventListener('click', recup);
         //creation label
         let label_task=document.createElement("p")
         label_task.className="tasks__task--label"
-        label_task.textContent=label
+        if (label == "done"){
+            label_task.style.backgroundImage = "url(./images/icons-validated.webp)";
+        }
+        else if (label == "doing"){
+            label_task.style.backgroundImage = "url(./images/icons-in-progress.webp)";
+        }
+        else {
+            label_task.style.backgroundImage = "url(./images/icons-not-validated.webp)";
+        }
+        //label_task.textContent=label
         task.appendChild(label_task)
         task.classList.add(`${label}`);
         //Création de l'évènement "agrandir quand on clique"
@@ -122,9 +131,11 @@ submit.addEventListener('click', recup);
         })
         name_task.addEventListener("mouseenter", function( ev ) {
             ev.target.style.cursor = "pointer";
+            ev.target.style.fontWeight = "500";
         })
         name_task.addEventListener("mouseleave", function( ev ) {
             ev.target.style.cursor = "default";
+            ev.target.style.fontWeight = "400";
         })
             
     }
