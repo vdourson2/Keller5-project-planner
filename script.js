@@ -75,7 +75,7 @@ submit.addEventListener('click', recup);
         //creation nom
         let name_task=document.createElement("h2")
         name_task.className="tasks__task--name"
-        task.textContent=name
+        name_task.textContent=name
         task.appendChild(name_task)
         //creation description
         let description_task=document.createElement("p")
@@ -143,6 +143,8 @@ function day(date_end){
     let formatTime=Math.ceil((Time/(1000*60*60*24)))
     return formatTime
 }
+
+
 
 
 
