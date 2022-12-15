@@ -42,6 +42,64 @@ body .header__addition {
   cursor: pointer;
 }
 
+.form {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 80vw;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  background-color: rgb(51, 83, 79);
+}
+.form h2 {
+  text-align: center;
+  font-size: 8vw;
+  font-weight: normal;
+  color: white;
+}
+.form #formulaire {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70%;
+}
+.form #formulaire .formulaire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  height: 100%;
+}
+.form #formulaire .formulaire #form__name {
+  width: 90%;
+}
+.form #formulaire .formulaire #form__description {
+  width: 90%;
+}
+.form #formulaire #submit {
+  width: 20%;
+  align-self: center;
+  margin-top: 5vw;
+}
+.form__datelabel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  align-items: flex-end;
+}
+.form__datelabel--date {
+  display: flex;
+  flex-direction: column;
+}
+.form__datelabel--label {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.form__datelabel #form__label {
+  height: 50%;
+}
+
 .categories {
   display: flex;
   justify-content: flex-end;
@@ -52,16 +110,7 @@ body .header__addition {
 }
 .categories__sort #categories__sort--select {
   text-align: center;
-<<<<<<< HEAD
   appearance: none;
-=======
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
->>>>>>> cb1a2333bbca09ea71574230dcb865ace6df67a7
   border-radius: 0.625em;
   width: 100%;
   height: 100%;

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <title>Project-Planner</title>
-        <link rel="stylesheet" href="../assets/style.css">
+        <link rel="stylesheet" href="/style.css">
         <script defer src="script.js"></script>
     </head>
 
@@ -19,19 +19,30 @@
         </header>
         <main class="main">
             <div class="form">
+                <h2>New Task toDo</h2>
+                <hr>
                 <form id="formulaire">
-                    <label for="Name">Name</label>
-                    <input type="text" name="name" id="form__name">
-                    <label for="description">Description</label>
-                    <textarea id="form__description" name="description"></textarea>
-                    <label for="Due_date">Due date</label>
-                    <input type="date" id="form__due" name="date">
-                    <select name="label" id="form__label">
-                        <option value="to-do" selected>to do</option>
-                        <option value="doing">doing</option>
-                        <option value="done">done</option>
-                    </select>
-                    <button type="button" id="submit">Submit</button>
+                    <div class="formulaire">
+                        <label for="Name">Title Task</label>
+                        <input type="text" name="name" id="form__name" placeholder="Add Task Name">
+                        <label for="description">Description</label>
+                        <textarea id="form__description" name="description" placeholder="Add Description" ></textarea>                    
+                        <div class="form__datelabel">
+                            <div class="form__datelabel--date">
+                                <label for="Due_date">Date</label>                          
+                                <input type="date" id="form__due" name="date">
+                            </div>
+                            <div class="form__datelabel--label">
+                                <label for="Status">Status</label>
+                                <select name="label" id="form__label">
+                                    <option value="to-do" selected>to do</option>
+                                    <option value="doing">doing</option>
+                                    <option value="done">done</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="submit">Create</button>
                 </form>
             </div>
             <div class="categories">

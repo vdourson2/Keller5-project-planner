@@ -62,6 +62,17 @@ let submit = document.getElementById("submit");
 let liste = [];*/
 submit.addEventListener('click', recup);
 
+//affichage form
+addition=document.getElementsByClassName("header__addition")[0]
+form=document.getElementsByClassName("form")[0]
+addition.addEventListener("click",()=>{
+    if(form.style.display=="none"){
+        form.style.display="block";
+    }
+    else{
+        form.style.display="none"
+    }
+})
 
 
 //Créer les cartes dans le HTML
