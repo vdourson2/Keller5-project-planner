@@ -157,6 +157,8 @@ body{
         border : 1px solid #478886;
         border-radius : 20px;
         box-shadow: 5px 5px 1px #478886;
+        display : flex;
+        justify-content: space-between;
         &--name{
             font-weight: 400;
         }
@@ -164,6 +166,9 @@ body{
             padding-left : 3vw;
             font-weight: 300;
             font-size: 1.2em ;
+        }
+        &--label {
+            min-width : 40px;
         }
     }    
 }

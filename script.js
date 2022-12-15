@@ -83,42 +83,47 @@ addition.addEventListener("click",()=>{
         let task=document.createElement("div");
         task.className="tasks__task";
         tasks.appendChild(task);
+        //Création div de gauche
+        let divGauche = document.createElement("div");
+        task.appendChild(divGauche);
         //creation nom
-        let name_task=document.createElement("h2")
-        name_task.className="tasks__task--name"
-        task.textContent=name
-        task.appendChild(name_task)
+        let name_task=document.createElement("h2");
+        name_task.className="tasks__task--name";
+        name_task.textContent=name;
+        divGauche.appendChild(name_task);
         //creation description
         let description_task=document.createElement("p");
         description_task.className="tasks__task--description";
         description_task.textContent=description;
-        task.appendChild(description_task);
+        divGauche.appendChild(description_task);
         //creation date-end
         let date_task=document.createElement("p");
         date_task.className="tasks__task--date";
         date_task.textContent=date;
-        task.appendChild(date_task);
+        divGauche.appendChild(date_task);
+        //temps restant
+        let Time_task=document.createElement("p");
+        Time_task.className="tasks__task--time";
+        Time_task.textContent=day(date);
+        divGauche.appendChild(Time_task);
+        //ajout du texte à côté du temps restant
+        let texteTpsRestant = document.createElement("span");
+        texteTpsRestant.textContent=" jours restants";
+        Time_task.appendChild(texteTpsRestant);
         //creation label
         let label_task=document.createElement("p")
         label_task.className="tasks__task--label"
         label_task.textContent=label
         task.appendChild(label_task)
         task.classList.add(`${label}`);
-        //temps restant
-        let Time_task=document.createElement("p");
-        Time_task.className="tasks__task--time";
-        Time_task.textContent=day(date);
-        task.appendChild(Time_task);
-        //ajout du texte à côté du temps restant
-        let texteTpsRestant = document.createElement("span");
-        texteTpsRestant.textContent=" jours restants";
-        Time_task.appendChild(texteTpsRestant);
     }
 
 //Création des classes "doing", "to-do, "done"
-let taskLabel = document.querySelectorAll('.tasks__task--label');
+/*let taskLabel = document.querySelectorAll('.tasks__task--label');
 for (let elem of taskLabel){
     let txtTaskLabel = elem.textContent;
+    console.log("Passage")
+    console.log(elem.textContent);
     if (txtTaskLabel == "to-do") {
         elem.classList.add("label__to-do");
     }
@@ -128,7 +133,7 @@ for (let elem of taskLabel){
     else if (txtTaskLabel == "done"){
         elem.classList.add("label__done");
     }
-}
+}*/
 
 //Filtrer
 //sélectionner les filtres
@@ -136,32 +141,32 @@ let filter = document.getElementById("categories__filter--select");
 //Appeler l'événement
 filter.addEventListener("change", changeFilter);
 //Fonction de l'événement
-function changeFilter(){
+function changeFilter(el){
     let labelToDo = document.querySelectorAll(".to-do");
     let labelDoing = document.querySelectorAll(".doing");
     let labelDone = document.querySelectorAll(".done");
+    console.log(labelToDo);
     console.log(labelDoing);
-    for (let elem of filter){
-        if (elem.value == "All"){
-            labelToDo.style.display = "block";
-            labelDoing.style.display = "block";
-            labelDone.style.display = "block";
-        }
-        else if (elem.value == "to-do"){
-            labelToDo.style.display = "block";
-            labelDoing.style.display = "none";
-            labelDone.style.display = "none";
-        }
-        else if (elem.value == "doing"){
-            labelDoing.style.display = "block";
-            labelToDo.style.display = "none";
-            labelDone.style.display = "none";
-        }
-        else if (elem.value == "done"){
-            labelDone.style.display = "block";
-            labelDoing.style.display = "none";
-            labelToDo.style.display = "none";
-        }
+    console.log(labelDone);
+    if (el.target.value == "All"){
+        labelToDo[0].style.display = "block";
+        labelDoing[1].style.display = "block";
+        labelDone[0].style.display = "block";
+    }
+    else if (el.target.value == "to-do"){
+        labelToDo[0].style.display = "block";
+        labelDoing[0].style.display = "none";
+        labelDone[0].style.display = "none";
+    }
+    else if (el.target.value == "doing"){
+        labelDoing[0].style.display = "block";
+        labelToDo[0].style.display = "none";
+        labelDone[0].style.display = "none";
+    }
+    else if (el.target.value == "done"){
+        labelDone[0].style.display = "block";
+        labelDoing[0].style.display = "none";
+        labelToDo[0].style.display = "none";
     }
 }
 
@@ -178,8 +183,6 @@ function day(date_end){
     let formatTime=Math.ceil((Time/(1000*60*60*24)))
     return formatTime
 }
-
-
 
 
 
