@@ -99,7 +99,31 @@ submit.addEventListener('click', recup);
 
 
 //Filtrer
+let filter = document.getElementById("categories__filter--select");
+console.log(filter);
+filter.addEventListener("change", changeFilter);
+//let cartTask = document.querySelectorAll('.tasks__task');
+//console.log(cartTask);
+let taskLabel = document.querySelectorAll('.Tasks__task--label');
+console.log(taskLabel);
 
+function changeFilter(){
+    let cartTask = document.querySelectorAll('.tasks__task');
+    let taskLabel = document.querySelectorAll('.Tasks__task--label');
+    if (value == "All"){
+        //montrer toutes les cartes
+    }
+    else if (value == "to-do"){
+        //montrer les cartes To-Do
+
+    }
+    else if (value == "doing"){
+        //montrer les cartes doing
+    }
+    else if (value == "done"){
+        //montrer les cartes done
+    }
+}
 
 
 
