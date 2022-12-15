@@ -132,24 +132,24 @@ function changeFilter(){
     console.log(labelDoing);
     for (let elem of filter){
         if (elem.value == "All"){
-            labelToDo.style.display = "block";
-            labelDoing.style.display = "block";
-            labelDone.style.display = "block";
+            labelToDo[0].style.display = "block";
+            labelDoing[0].style.display = "block";
+            labelDone[0].style.display = "block";
         }
         else if (elem.value == "to-do"){
-            labelToDo.style.display = "block";
-            labelDoing.style.display = "none";
-            labelDone.style.display = "none";
+            labelToDo[0].style.display = "block";
+            labelDoing[0].style.display = "none";
+            labelDone[0].style.display = "none";
         }
         else if (elem.value == "doing"){
-            labelDoing.style.display = "block";
-            labelToDo.style.display = "none";
-            labelDone.style.display = "none";
+            labelDoing[0].style.display = "block";
+            labelToDo[0].style.display = "none";
+            labelDone[0].style.display = "none";
         }
         else if (elem.value == "done"){
-            labelDone.style.display = "block";
-            labelDoing.style.display = "none";
-            labelToDo.style.display = "none";
+            labelDone[0].style.display = "block";
+            labelDoing[0].style.display = "none";
+            labelToDo[0].style.display = "none";
         }
     }
 }
