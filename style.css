@@ -42,10 +42,6 @@ body .header__addition {
   cursor: pointer;
 }
 
-.form {
-  display: none;
-}
-
 .categories {
   display: flex;
   justify-content: flex-end;
