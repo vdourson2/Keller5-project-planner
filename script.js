@@ -105,9 +105,11 @@ submit.addEventListener('click', recup);
     }
 
 //Création des classes "doing", "to-do, "done"
-let taskLabel = document.querySelectorAll('.tasks__task--label');
+/*let taskLabel = document.querySelectorAll('.tasks__task--label');
 for (let elem of taskLabel){
     let txtTaskLabel = elem.textContent;
+    console.log("Passage")
+    console.log(elem.textContent);
     if (txtTaskLabel == "to-do") {
         elem.classList.add("label__to-do");
     }
@@ -117,7 +119,7 @@ for (let elem of taskLabel){
     else if (txtTaskLabel == "done"){
         elem.classList.add("label__done");
     }
-}
+}*/
 
 //Filtrer
 //sélectionner les filtres
@@ -125,32 +127,32 @@ let filter = document.getElementById("categories__filter--select");
 //Appeler l'événement
 filter.addEventListener("change", changeFilter);
 //Fonction de l'événement
-function changeFilter(){
+function changeFilter(el){
     let labelToDo = document.querySelectorAll(".to-do");
     let labelDoing = document.querySelectorAll(".doing");
     let labelDone = document.querySelectorAll(".done");
+    console.log(labelToDo);
     console.log(labelDoing);
-    for (let elem of filter){
-        if (elem.value == "All"){
-            labelToDo[0].style.display = "block";
-            labelDoing[0].style.display = "block";
-            labelDone[0].style.display = "block";
-        }
-        else if (elem.value == "to-do"){
-            labelToDo[0].style.display = "block";
-            labelDoing[0].style.display = "none";
-            labelDone[0].style.display = "none";
-        }
-        else if (elem.value == "doing"){
-            labelDoing[0].style.display = "block";
-            labelToDo[0].style.display = "none";
-            labelDone[0].style.display = "none";
-        }
-        else if (elem.value == "done"){
-            labelDone[0].style.display = "block";
-            labelDoing[0].style.display = "none";
-            labelToDo[0].style.display = "none";
-        }
+    console.log(labelDone);
+    if (el.target.value == "All"){
+        labelToDo[0].style.display = "block";
+        labelDoing[1].style.display = "block";
+        labelDone[0].style.display = "block";
+    }
+    else if (el.target.value == "to-do"){
+        labelToDo[0].style.display = "block";
+        labelDoing[0].style.display = "none";
+        labelDone[0].style.display = "none";
+    }
+    else if (el.target.value == "doing"){
+        labelDoing[0].style.display = "block";
+        labelToDo[0].style.display = "none";
+        labelDone[0].style.display = "none";
+    }
+    else if (el.target.value == "done"){
+        labelDone[0].style.display = "block";
+        labelDoing[0].style.display = "none";
+        labelToDo[0].style.display = "none";
     }
 }
 
