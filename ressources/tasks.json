@@ -1,0 +1,16 @@
+{
+    "base" : [
+        {
+            "name" : "Initialisation",
+            "description" : "Démarrer le processus et créer les documents de base",
+            "due" : "2022-12-28",
+            "label" : "done"
+        },
+        {
+            "name" : "Répartition des tâches",
+            "description" : "Déterminer les différentes tâches à réaliser et dispatcher suivant les souhaits et les compétences",
+            "due" : "2023-01-15",
+            "label" : "doing" 
+        }
+]
+}

@@ -35,13 +35,11 @@ const recup = (e) => {
     let nameOr = document.getElementById('form__name').value;
     let descriptionOr = document.getElementById('form__description').value;
     let dueOr = document.getElementById('form__due').value;
-    console.log(dueOr);
     let labelOr = document.getElementById('form__label').value;
-    console.log(labelOr);
-    //Reset des zones d'encodage
-    document.getElementById("formulaire").reset();
     //Appel de la fonction de création des cartes dans la div "task."
     create_task(nameOr, descriptionOr, dueOr, labelOr);
+    //Reset des zones d'encodage
+    document.getElementById("formulaire").reset();
     
     /*Local storage
     let tache = {
