@@ -35,11 +35,13 @@ const recup = (e) => {
     let nameOr = document.getElementById('form__name').value;
     let descriptionOr = document.getElementById('form__description').value;
     let dueOr = document.getElementById('form__due').value;
+    console.log(dueOr);
     let labelOr = document.getElementById('form__label').value;
-    //Appel de la fonction de création des cartes dans la div "task."
-    create_task(nameOr, descriptionOr, dueOr, labelOr);
+    console.log(labelOr);
     //Reset des zones d'encodage
     document.getElementById("formulaire").reset();
+    //Appel de la fonction de création des cartes dans la div "task."
+    create_task(nameOr, descriptionOr, dueOr, labelOr);
     
     /*Local storage
     let tache = {
@@ -101,9 +103,12 @@ submit.addEventListener('click', recup);
         Time_task.appendChild(texteTpsRestant);
     }
 
+//Création des classes "doing", "to-do, "done"
+let taskLabel = document.querySelectorAll('.Tasks__task--label');
+console.log(taskLabel);
 
 //Filtrer
-let filter = document.getElementById("categories__filter--select");
+/*let filter = document.getElementById("categories__filter--select");
 console.log(filter);
 filter.addEventListener("change", changeFilter);
 //let cartTask = document.querySelectorAll('.tasks__task');
@@ -127,7 +132,7 @@ function changeFilter(){
     else if (value == "done"){
         //montrer les cartes done
     }
-}
+}*/
 
 
 
