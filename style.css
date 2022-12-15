@@ -110,12 +110,7 @@ body .header__addition {
 }
 .categories__sort #categories__sort--select {
   text-align: center;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   border-radius: 0.625em;
   width: 100%;
   height: 100%;

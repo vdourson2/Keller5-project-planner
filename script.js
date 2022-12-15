@@ -118,55 +118,30 @@ addition.addEventListener("click",()=>{
         task.classList.add(`${label}`);
     }
 
-//Création des classes "doing", "to-do, "done"
-/*let taskLabel = document.querySelectorAll('.tasks__task--label');
-for (let elem of taskLabel){
-    let txtTaskLabel = elem.textContent;
-    console.log("Passage")
-    console.log(elem.textContent);
-    if (txtTaskLabel == "to-do") {
-        elem.classList.add("label__to-do");
-    }
-    else if (txtTaskLabel == "doing"){
-        elem.classList.add("label__doing");
-    }
-    else if (txtTaskLabel == "done"){
-        elem.classList.add("label__done");
-    }
-}*/
+
 
 //Filtrer
-//sélectionner les filtres
+
 let filter = document.getElementById("categories__filter--select");
-//Appeler l'événement
 filter.addEventListener("change", changeFilter);
-//Fonction de l'événement
-function changeFilter(el){
-    let labelToDo = document.querySelectorAll(".to-do");
-    let labelDoing = document.querySelectorAll(".doing");
-    let labelDone = document.querySelectorAll(".done");
-    console.log(labelToDo);
-    console.log(labelDoing);
-    console.log(labelDone);
-    if (el.target.value == "All"){
-        labelToDo[0].style.display = "block";
-        labelDoing[1].style.display = "block";
-        labelDone[0].style.display = "block";
+function changeFilter(e){
+    list_task=document.getElementsByClassName("tasks__task")
+    for(elem of list_task){
+        elem.style.display="none"
     }
-    else if (el.target.value == "to-do"){
-        labelToDo[0].style.display = "block";
-        labelDoing[0].style.display = "none";
-        labelDone[0].style.display = "none";
-    }
-    else if (el.target.value == "doing"){
-        labelDoing[0].style.display = "block";
-        labelToDo[0].style.display = "none";
-        labelDone[0].style.display = "none";
-    }
-    else if (el.target.value == "done"){
-        labelDone[0].style.display = "block";
-        labelDoing[0].style.display = "none";
-        labelToDo[0].style.display = "none";
+    for (elem of list_task){
+        if(elem.classList.contains("to-do") && e.target.value=="to-do" ){
+            elem.style.display="flex"
+        }
+        else if(elem.classList.contains("doing") && e.target.value=="doing"){
+            elem.style.display="flex"
+        }
+        else if(elem.classList.contains("done") && e.target.value=="done"){
+            elem.style.display="flex"
+        }
+        else if(e.target.value=="All"){
+            elem.style.display="flex"
+        }
     }
 }
 
