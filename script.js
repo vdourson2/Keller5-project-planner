@@ -74,27 +74,27 @@ submit.addEventListener('click', recup);
         let name_task=document.createElement("h2")
         name_task.className="tasks__task--name"
         task.textContent=name
-        task.append(name_task)
+        task.appendChild(name_task)
         //creation description
         let description_task=document.createElement("p")
         description_task.className="tasks__task--description"
         description_task.textContent=description
-        task.append(description_task)
+        task.appendChild(description_task)
         //creation date-end
         let date_task=document.createElement("p")
         date_task.className="tasks__task--date"
         date_task.textContent=date
-        task.append(date_task)
+        task.appendChild(date_task)
         //creation label
         let label_task=document.createElement("p")
         label_task.className="Tasks__task--label"
         label_task.textContent=label
-        task.append(label_task)
+        task.appendChild(label_task)
         //temps restant
         let Time_task=document.createElement("p")
         Time_task.className="Tasks__task--time"
         Time_task.textContent=day(date)
-        task.append(Time_task)
+        task.appendChild(Time_task)
     }
 
 
