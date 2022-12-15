@@ -92,7 +92,24 @@ body{
 //Style des cartes
 
 .tasks{
-    
+    &__task{
+        font-family: 'Zen Kaku Gothic New', sans-serif;
+        width : 70%;
+        margin : 5vw auto;  
+        padding : 4%;
+        background-color: white;
+        border : 1px solid #478886;
+        border-radius : 20px;
+        box-shadow: 5px 5px 1px #478886;
+        &--name{
+            font-weight: 400;
+        }
+        &--description, &--date, &--time{
+            padding-left : 3vw;
+            font-weight: 300;
+            font-size: 1.2em ;
+        }
+    }    
 }
 
 //Footer
