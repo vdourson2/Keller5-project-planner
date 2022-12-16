@@ -154,7 +154,6 @@ addition.addEventListener("click",()=>{
         })
             
     }
-    }
 
 //gestion nombre de tache
 function count(){
@@ -198,10 +197,9 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-let sort = document.getElementById("categories__sort--select");
-sort.addEventListener("change",tri);
-function tri(e){
-    if(e.target.value=="alphabet"){
+let sort_alphabet = document.getElementsByClassName("categories__sort--alphabet")[0];
+sort_alphabet.addEventListener("click",tri_alphabet);
+function tri_alphabet(){
         tasks=document.getElementsByClassName("tasks")[0]
         list_task=document.getElementsByClassName("tasks__task")
         alphabet=[]
@@ -221,31 +219,33 @@ function tri(e){
         for(let elem of list_task_sort ){
             tasks.appendChild(elem)
         }
-    }
-    else if(e.target.value=="time"){
-        tasks=document.getElementsByClassName("tasks")[0]
-        list_task=document.getElementsByClassName("tasks__task")
-        time=[]
-        for (let elem of list_task){
-            time_task=elem.firstElementChild.children[2].textContent
-            date=new Date(time_task)
-            time.push(date)
-        }
-        list_time_sort=time.sort((a, b) => a-b);
-        list_task_sort=[]
-        for(let timing of list_time_sort){
-            for(let elem of list_task){
-                elem_time=new Date(elem.firstElementChild.children[2].textContent)
-                if(elem_time.getTime()==timing.getTime())
-                    list_task_sort.push(elem)
-            }
-        }
-        removeAllChildNodes(tasks)
-        for(let elem of list_task_sort ){
-            tasks.appendChild(elem)
-        }     
-    }
 }
+let sort_time = document.getElementsByClassName("categories__sort--time")[0];
+sort_time.addEventListener("click",tri_time);
+function tri_time(){
+    tasks=document.getElementsByClassName("tasks")[0]
+    list_task=document.getElementsByClassName("tasks__task")
+    time=[]
+    for (let elem of list_task){
+         time_task=elem.firstElementChild.children[2].textContent
+        date=new Date(time_task)
+        time.push(date)
+    }
+    list_time_sort=time.sort((a, b) => a-b);
+    list_task_sort=[]
+    for(let timing of list_time_sort){
+        for(let elem of list_task){
+            elem_time=new Date(elem.firstElementChild.children[2].textContent)
+            if(elem_time.getTime()==timing.getTime())
+                list_task_sort.push(elem)
+        }
+    }
+    removeAllChildNodes(tasks)
+    for(let elem of list_task_sort ){
+        tasks.appendChild(elem)
+    }     
+}
+
 
 
 

@@ -105,16 +105,17 @@ body .header__addition {
   justify-content: flex-end;
 }
 .categories__sort {
+  display: flex;
+  justify-content: space-between;
   margin: 2vw 5vw 0 0;
   width: 15%;
 }
-.categories__sort #categories__sort--select {
-  text-align: center;
-  appearance: none;
-  border-radius: 0.625em;
-  width: 100%;
+.categories__sort img {
+  width: 33%;
   height: 100%;
-  background-color: rgb(51, 83, 79);
+}
+.categories__sort img:hover {
+  filter: brightness(0) invert(1);
 }
 .categories__filter {
   margin: 2vw 5vw 0 0;

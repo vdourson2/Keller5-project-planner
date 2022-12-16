@@ -117,15 +117,16 @@ body{
     display: flex;
     justify-content: flex-end;
     &__sort{
+        display: flex;
+        justify-content: space-between;
         margin:2vw 5vw 0 0;
         width: 15%;
-        #categories__sort--select{
-            text-align: center;
-            appearance: none;
-            border-radius: 0.625em;
-            width: 100%;
+        img{
+            width: 33%;
             height: 100%;
-            background-color: rgba(51, 83, 79, 1);
+            &:hover{
+                filter: brightness(0) invert(1);
+            }
         }
     }
     &__filter{
