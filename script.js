@@ -130,6 +130,7 @@ addition.addEventListener("click",()=>{
         let divZoneModif = document.createElement("div");
         divZoneModif.className = "tasks__task--zoneModif";
         divGauche.appendChild(divZoneModif);
+        //Ajout de l'icone crayon
         let icon = document.createElement("img");
         icon.src = "./images/icons-pencil.webp";
         divZoneModif.appendChild(icon);
@@ -167,20 +168,24 @@ addition.addEventListener("click",()=>{
         task.appendChild(label_task)
         task.classList.add(`${label}`);
         //Création de l'évènement "agrandir quand on clique"
+        
         name_task.addEventListener('click', (e) =>{
-            if (description_task.classList.contains("displayNone")){
-                description_task.classList.replace("displayNone","displayBlock");
-                date_task.classList.replace("displayNone","displayBlock");
-                description_task.style.display = "block";
-                date_task.style.display = "block";
-                divZoneModif.style.display = "flex";
-            }
-            else {
-                description_task.classList.replace("displayBlock","displayNone");
-                date_task.classList.replace("displayBlock","displayNone");                
-                description_task.style.display = "none";
-                date_task.style.display = "none";
-                divZoneModif.style.display = "none";
+            let tailleEcran = window.matchMedia("(min-width:1024px)");
+            if (!tailleEcran.matches){
+                if (description_task.classList.contains("displayNone")){
+                    description_task.classList.replace("displayNone","displayBlock");
+                    date_task.classList.replace("displayNone","displayBlock");
+                    description_task.style.display = "block";
+                    date_task.style.display = "block";
+                    divZoneModif.style.display = "flex";
+                }
+                else {
+                    description_task.classList.replace("displayBlock","displayNone");
+                    date_task.classList.replace("displayBlock","displayNone");                
+                    description_task.style.display = "none";
+                    date_task.style.display = "none";
+                    divZoneModif.style.display = "none";
+                }
             }
         })
         name_task.addEventListener("mouseenter", function( ev ) {

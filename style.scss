@@ -398,8 +398,11 @@ body{
             padding-left : 2vw;
             @include fonts(1vw, 300);
         }
-        &--description, &--date, img{
+        &--description, &--date, &--zoneModif{
             display : block;
+        }
+        &--zoneModif{
+            display:flex;
         }
         img{
             width:25px;
