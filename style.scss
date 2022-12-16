@@ -185,9 +185,15 @@ body{
             padding-left : 2vw;
             @include fonts(3vw, 300);
         }
-        &--description, &--date, img{
+        //Modifié à voir pour le mediaqueries : début
+        &--description, &--date, &--zoneModif{
             display : none;
         }
+        
+        &--zoneModif{
+            justify-content : space-between;  
+        }
+        //fin de la modif
         img{
             width:25px;
             height:25px;

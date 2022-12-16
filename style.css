@@ -177,8 +177,11 @@ body .header__addition {
   font-size: 3vw;
   font-weight: 300;
 }
-.tasks__task--description, .tasks__task--date, .tasks__task img {
+.tasks__task--description, .tasks__task--date, .tasks__task--zoneModif {
   display: none;
+}
+.tasks__task--zoneModif {
+  justify-content: space-between;
 }
 .tasks__task img {
   width: 25px;
