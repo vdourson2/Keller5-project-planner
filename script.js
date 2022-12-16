@@ -44,6 +44,15 @@ const recup = (e) => {
     create_task(nameOr, descriptionOr, dueOr, labelOr);
     //Ajout d'une tache dans le compteur
     count()
+    //tri alphabet+temps
+    let tasks=document.getElementsByClassName("tasks")[0]
+    if(tasks.classList.contains("alphabet")){
+        tri_alphabet()
+    }
+    else if(tasks.classList.contains("time")){
+        tri_time()
+    }
+    
     
     /*Local storage
     let tache = {
@@ -67,8 +76,9 @@ submit.addEventListener('click', recup);
 //affichage form
 addition=document.getElementsByClassName("header__addition")[0]
 form=document.getElementsByClassName("form")[0]
+console.log(form.style)
 addition.addEventListener("click",()=>{
-    if(form.style.display=="none"){
+    if(form.style.display=="none" || form.style.display==""){
         form.style.display="block";
     }
     else{
@@ -164,7 +174,7 @@ addition.addEventListener("click",()=>{
         })
             
     }
-    
+
 
 //gestion nombre de tache
 function count(){
@@ -203,16 +213,35 @@ function changeFilter(e){
 
 
 //Trier alphabet+temps
+function select_sort(){
+    let tasks=document.getElementsByClassName("tasks")[0]
+    let alpha=document.getElementsByClassName("categories__sort--alphabet")[0]
+    let temps=document.getElementsByClassName("categories__sort--time")[0]
+    if(tasks.classList.contains("alphabet")){
+        alpha.style.filter="brightness(0) invert(1)";
+        temps.style.filter="none";
+    }
+    else if(tasks.classList.contains("time")){
+        temps.style.filter="brightness(0) invert(1)";
+        alpha.style.filter="none";
+    }
+}
+select_sort()
+tri_time()
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
-let sort = document.getElementById("categories__sort--select");
-sort.addEventListener("change",tri);
-function tri(e){
-    if(e.target.value=="alphabet"){
+let sort_alphabet = document.getElementsByClassName("categories__sort--alphabet")[0];
+sort_alphabet.addEventListener("click",tri_alphabet);
+function tri_alphabet(){
         tasks=document.getElementsByClassName("tasks")[0]
+        if(tasks.classList.contains("time")){
+            tasks.classList.remove("time")
+        }
+        tasks.classList.add("alphabet");
+        select_sort()
         list_task=document.getElementsByClassName("tasks__task")
         alphabet=[]
         for (let elem of list_task){
@@ -231,31 +260,38 @@ function tri(e){
         for(let elem of list_task_sort ){
             tasks.appendChild(elem)
         }
-    }
-    else if(e.target.value=="time"){
-        tasks=document.getElementsByClassName("tasks")[0]
-        list_task=document.getElementsByClassName("tasks__task")
-        time=[]
-        for (let elem of list_task){
-            time_task=elem.firstElementChild.children[2].textContent
-            date=new Date(time_task)
-            time.push(date)
-        }
-        list_time_sort=time.sort((a, b) => a-b);
-        list_task_sort=[]
-        for(let timing of list_time_sort){
-            for(let elem of list_task){
-                elem_time=new Date(elem.firstElementChild.children[2].textContent)
-                if(elem_time.getTime()==timing.getTime())
-                    list_task_sort.push(elem)
-            }
-        }
-        removeAllChildNodes(tasks)
-        for(let elem of list_task_sort ){
-            tasks.appendChild(elem)
-        }     
-    }
 }
+let sort_time = document.getElementsByClassName("categories__sort--time")[0];
+sort_time.addEventListener("click",tri_time);
+function tri_time(){
+    tasks=document.getElementsByClassName("tasks")[0]
+    if(tasks.classList.contains("alphabet")){
+        tasks.classList.remove("alphabet")
+    }
+    tasks.classList.add("time");
+    select_sort()
+    list_task=document.getElementsByClassName("tasks__task")
+    time=[]
+    for (let elem of list_task){
+         time_task=elem.firstElementChild.children[2].textContent
+        date=new Date(time_task)
+        time.push(date)
+    }
+    list_time_sort=time.sort((a, b) => a-b);
+    list_task_sort=[]
+    for(let timing of list_time_sort){
+        for(let elem of list_task){
+            elem_time=new Date(elem.firstElementChild.children[2].textContent)
+            if(elem_time.getTime()==timing.getTime())
+                list_task_sort.push(elem)
+        }
+    }
+    removeAllChildNodes(tasks)
+    for(let elem of list_task_sort ){
+        tasks.appendChild(elem)
+    }     
+}
+
 
 
 
