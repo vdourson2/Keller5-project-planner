@@ -42,6 +42,8 @@ const recup = (e) => {
     document.getElementById("formulaire").reset();
     //Appel de la fonction de création des cartes dans la div "task."
     create_task(nameOr, descriptionOr, dueOr, labelOr);
+    //Ajout d'une tache dans le compteur
+    count()
     
     /*Local storage
     let tache = {
@@ -73,6 +75,8 @@ addition.addEventListener("click",()=>{
         form.style.display="none"
     }
 })
+
+
 
 
 //Créer les cartes dans le HTML
@@ -118,7 +122,14 @@ addition.addEventListener("click",()=>{
         task.classList.add(`${label}`);
     }
 
-
+//gestion nombre de tache
+function count(){
+    list_task=document.getElementsByClassName("tasks__task")
+    length=list_task.length
+    subtitle=document.getElementsByClassName("header__para")[0];
+    subtitle.textContent="You have "+ length +" tasks today ";
+}
+count()
 
 //Filtrer
 
@@ -147,7 +158,63 @@ function changeFilter(e){
 
 
 
-//Trier
+//Trier alphabet+temps
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+let sort = document.getElementById("categories__sort--select");
+sort.addEventListener("change",tri);
+function tri(e){
+    if(e.target.value=="alphabet"){
+        tasks=document.getElementsByClassName("tasks")[0]
+        list_task=document.getElementsByClassName("tasks__task")
+        alphabet=[]
+        for (let elem of list_task){
+            name_task=elem.firstElementChild.children[0].textContent
+            alphabet.push(name_task.toLowerCase())
+        }
+        list_title_sort=alphabet.sort()
+        list_task_sort=[]
+        for(let title of list_title_sort){
+            for(let elem of list_task){
+                if(elem.firstElementChild.children[0].textContent.toLowerCase()==title)
+                    list_task_sort.push(elem)
+            }
+        }
+        removeAllChildNodes(tasks)
+        for(let elem of list_task_sort ){
+            tasks.appendChild(elem)
+        }
+    }
+    else if(e.target.value=="time"){
+        tasks=document.getElementsByClassName("tasks")[0]
+        list_task=document.getElementsByClassName("tasks__task")
+        time=[]
+        for (let elem of list_task){
+            time_task=elem.firstElementChild.children[2].textContent
+            date=new Date(time_task)
+            time.push(date)
+        }
+        list_time_sort=time.sort((a, b) => a-b);
+        list_task_sort=[]
+        for(let timing of list_time_sort){
+            for(let elem of list_task){
+                elem_time=new Date(elem.firstElementChild.children[2].textContent)
+                if(elem_time.getTime()==timing.getTime())
+                    list_task_sort.push(elem)
+            }
+        }
+        removeAllChildNodes(tasks)
+        for(let elem of list_task_sort ){
+            tasks.appendChild(elem)
+        }     
+    }
+}
+
+
+
 
 
 //retourne le nombre de jours entre maintenant et la date en argument.
