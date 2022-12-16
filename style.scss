@@ -160,6 +160,9 @@ body{
         box-shadow: 5px 5px 1px #478886;
         display : flex;
         justify-content: space-between;
+        &--divGauche{
+            width : 85%;
+        }
         &--name{
             font-weight: 400;
         }
