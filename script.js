@@ -154,7 +154,6 @@ addition.addEventListener("click",()=>{
         })
             
     }
-    }
 
 //gestion nombre de tache
 function count(){
