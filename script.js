@@ -24,6 +24,30 @@ const base = [
         due : "2023-02-10",
         label : "to-do"
     },
+    {
+        name : "Initialisation",
+        description : "Démarrer le processus et créer les documents de base",
+        due : "2022-12-28",
+        label : "done"
+    },
+    {
+        name : "Répartition des tâches",
+        description : "Déterminer les différentes tâches à réaliser et dispatcher suivant les souhaits et les compétences",
+        due : "2023-01-15",
+        label : "doing" 
+    },
+    {
+        name : "Contact avec le client",
+        description : "Fixer un rendez-vous avec Monsieur Tartenpiont et voir avec lui les exigences au niveau du design",
+        due : "2023-01-15",
+        label : "doing"
+    },
+    {
+        name : "Présentation de l'avant-projet",
+        description : "Fixer une date et réunir toute l'équipe pour la présentation de l'avant-projet",
+        due : "2023-02-10",
+        label : "to-do"
+    },
 ]
 for (let b of base){
     create_task(b.name, b.description, b.due, b.label)
@@ -131,6 +155,7 @@ addition.addEventListener("click",()=>{
         let divZoneModif = document.createElement("div");
         divZoneModif.className = "tasks__task--zoneModif";
         divGauche.appendChild(divZoneModif);
+        //Ajout de l'icone crayon
         let icon = document.createElement("img");
         icon.src = "./images/icons-pencil.webp";
         divZoneModif.appendChild(icon);
@@ -168,20 +193,24 @@ addition.addEventListener("click",()=>{
         task.appendChild(label_task)
         task.classList.add(`${label}`);
         //Création de l'évènement "agrandir quand on clique"
+        
         name_task.addEventListener('click', (e) =>{
-            if (description_task.classList.contains("displayNone")){
-                description_task.classList.replace("displayNone","displayBlock");
-                date_task.classList.replace("displayNone","displayBlock");
-                description_task.style.display = "block";
-                date_task.style.display = "block";
-                divZoneModif.style.display = "flex";
-            }
-            else {
-                description_task.classList.replace("displayBlock","displayNone");
-                date_task.classList.replace("displayBlock","displayNone");                
-                description_task.style.display = "none";
-                date_task.style.display = "none";
-                divZoneModif.style.display = "none";
+            let tailleEcran = window.matchMedia("(min-width:1024px)");
+            if (!tailleEcran.matches){
+                if (description_task.classList.contains("displayNone")){
+                    description_task.classList.replace("displayNone","displayBlock");
+                    date_task.classList.replace("displayNone","displayBlock");
+                    description_task.style.display = "block";
+                    date_task.style.display = "block";
+                    divZoneModif.style.display = "flex";
+                }
+                else {
+                    description_task.classList.replace("displayBlock","displayNone");
+                    date_task.classList.replace("displayBlock","displayNone");                
+                    description_task.style.display = "none";
+                    date_task.style.display = "none";
+                    divZoneModif.style.display = "none";
+                }
             }
         })
         name_task.addEventListener("mouseenter", function( ev ) {
