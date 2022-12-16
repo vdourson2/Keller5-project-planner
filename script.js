@@ -132,6 +132,24 @@ addition.addEventListener("click",()=>{
         let icon = document.createElement("img");
         icon.src = "./images/icons-pencil.webp";
         divZoneModif.appendChild(icon);
+        //Ajout de la zone select pour le changement de status
+        let changeStatus = document.createElement("select");
+        changeStatus.className = "tasks__task--changeStatus";
+        let optionToDo = document.createElement("option");
+        optionToDo.text = "To do";
+        changeStatus.options.add(optionToDo);
+        let optionDoing = document.createElement("option");
+        optionDoing.text = "Doing";
+        changeStatus.options.add(optionDoing);
+        let optionDone = document.createElement("option");
+        optionDone.text = "Done";
+        changeStatus.options.add(optionDone);
+        divZoneModif.appendChild(changeStatus);
+        //Ajout de l'icone de suppression de la fiche
+        let suppr = document.createElement("img");
+        suppr.src = "./images/icons-not-validated.webp";
+        suppr.className = "tasks__task--delete";
+        divZoneModif.appendChild(suppr);
         //creation label
         let label_task=document.createElement("p")
         label_task.className="tasks__task--label"
@@ -154,14 +172,14 @@ addition.addEventListener("click",()=>{
                 date_task.classList.replace("displayNone","displayBlock");
                 description_task.style.display = "block";
                 date_task.style.display = "block";
-                icon.style.display = "block";
+                divZoneModif.style.display = "flex";
             }
             else {
                 description_task.classList.replace("displayBlock","displayNone");
                 date_task.classList.replace("displayBlock","displayNone");                
                 description_task.style.display = "none";
                 date_task.style.display = "none";
-                icon.style.display = "none";
+                divZoneModif.style.display = "none";
             }
         })
         name_task.addEventListener("mouseenter", function( ev ) {

@@ -122,7 +122,9 @@ body .header__addition {
 }
 .categories__filter #categories__filter--select {
   text-align: center;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: rgb(51, 83, 79);
   color: white;
   font-family: "Zen Kaku Gothic New", sans-serif;
@@ -154,8 +156,11 @@ body .header__addition {
   font-weight: 300;
   font-size: 1.2em;
 }
-.tasks__task--description, .tasks__task--date, .tasks__task img {
+.tasks__task--description, .tasks__task--date, .tasks__task--zoneModif {
   display: none;
+}
+.tasks__task--zoneModif {
+  justify-content: space-between;
 }
 .tasks__task img {
   width: 25px;

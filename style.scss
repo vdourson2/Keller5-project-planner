@@ -170,9 +170,15 @@ body{
             font-weight: 300;
             font-size: 1.2em;
         }
-        &--description, &--date, img{
+        //Modifié à voir pour le mediaqueries : début
+        &--description, &--date, &--zoneModif{
             display : none;
         }
+        
+        &--zoneModif{
+            justify-content : space-between;  
+        }
+        //fin de la modif
         img{
             width:25px;
             height:25px;
