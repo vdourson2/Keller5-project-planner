@@ -16,7 +16,7 @@ body{
         font-family: 'Zen Kaku Gothic New', sans-serif;
         width: 100%;
         height: 70vw;
-        background-image: url("images/wallpaper-colors.webp");
+        background-image: url("images/wallpaper-colors-mobile.webp");
         background-position: right;
         background-size: cover;
         display: flex;
@@ -185,6 +185,10 @@ body{
 //Footer
 
 
+//MediaQueries
+@media screen and (min-width: 1024px) {
+    
+}
 
 
 
