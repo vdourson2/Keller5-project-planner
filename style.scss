@@ -207,14 +207,21 @@ body{
         }
         
         &--zoneModif{
-            justify-content : space-between;  
+            justify-content : space-between; 
         }
+        &--changeStatus, &--delete{
+            display : none;
+        } 
         //fin de la modif
         img{
             width:25px;
             height:25px;
             padding-left : 2vw;
             padding-top : 2vw;
+
+        &--changeStatus {
+            display : none;
+        }
 
         }
         &--label {

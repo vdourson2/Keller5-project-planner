@@ -227,9 +227,10 @@ addition.addEventListener("click",()=>{
             ev.target.style.fontWeight = "400";
             }
         })
-        /*icon.addEventListener('click',(e) => {
-
-        })*/
+        icon.addEventListener('click',(e) => {
+            changeStatus.style.display="block";
+            suppr.style.display="block";
+        })
             
     }
 
