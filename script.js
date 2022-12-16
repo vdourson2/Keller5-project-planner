@@ -59,9 +59,7 @@ const recup = (e) => {
     let nameOr = document.getElementById('form__name').value;
     let descriptionOr = document.getElementById('form__description').value;
     let dueOr = document.getElementById('form__due').value;
-    console.log(dueOr);
     let labelOr = document.getElementById('form__label').value;
-    console.log(labelOr);
     //Reset des zones d'encodage
     document.getElementById("formulaire").reset();
     //Appel de la fonction de création des cartes dans la div "task."
@@ -404,7 +402,6 @@ function change_statut(){
                 elem.classList.add("done")
             }
         }
-        console.log(elem.classList[1])
         if (elem.classList[1] == "done"){
             elem.children[1].style.backgroundImage = "url(./images/icons-validated.webp)";
         }
