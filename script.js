@@ -113,8 +113,15 @@ addition.addEventListener("click",()=>{
         divGauche.appendChild(Time_task);
         //ajout du texte à côté du temps restant
         let texteTpsRestant = document.createElement("span");
-        texteTpsRestant.textContent=" jours restants";
+        texteTpsRestant.textContent=" days left";
         Time_task.appendChild(texteTpsRestant);
+        //Ajout de zone de modification de fiche
+        let divZoneModif = document.createElement("div");
+        divZoneModif.className = "tasks__task--zoneModif";
+        divGauche.appendChild(divZoneModif);
+        let icon = document.createElement("img");
+        icon.src = "./images/icons-pencil.webp";
+        divZoneModif.appendChild(icon);
         //creation label
         let label_task=document.createElement("p")
         label_task.className="tasks__task--label"
@@ -125,7 +132,7 @@ addition.addEventListener("click",()=>{
             label_task.style.backgroundImage = "url(./images/icons-in-progress.webp)";
         }
         else {
-            label_task.style.backgroundImage = "url(./images/icons-not-validated.webp)";
+            label_task.style.backgroundImage = "url(./images/icons-cercle.webp)";
         }
         //label_task.textContent=label
         task.appendChild(label_task)
@@ -137,12 +144,14 @@ addition.addEventListener("click",()=>{
                 date_task.classList.replace("displayNone","displayBlock");
                 description_task.style.display = "block";
                 date_task.style.display = "block";
+                icon.style.display = "block";
             }
             else {
                 description_task.classList.replace("displayBlock","displayNone");
                 date_task.classList.replace("displayBlock","displayNone");                
                 description_task.style.display = "none";
                 date_task.style.display = "none";
+                icon.style.display = "none";
             }
         })
         name_task.addEventListener("mouseenter", function( ev ) {

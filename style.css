@@ -158,8 +158,14 @@ body .header__addition {
   font-weight: 300;
   font-size: 1.2em;
 }
-.tasks__task--description, .tasks__task--date {
+.tasks__task--description, .tasks__task--date, .tasks__task img {
   display: none;
+}
+.tasks__task img {
+  width: 25px;
+  height: 25px;
+  padding-left: 2vw;
+  padding-top: 2vw;
 }
 .tasks__task--label {
   width: 40px;

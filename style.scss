@@ -170,8 +170,15 @@ body{
             font-weight: 300;
             font-size: 1.2em;
         }
-        &--description, &--date{
+        &--description, &--date, img{
             display : none;
+        }
+        img{
+            width:25px;
+            height:25px;
+            padding-left : 2vw;
+            padding-top : 2vw;
+
         }
         &--label {
             width : 40px;
