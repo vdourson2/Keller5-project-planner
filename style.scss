@@ -251,6 +251,10 @@ body{
     &__icons img{
         width : 5%;
         max-width: 30px;
+        padding:0% 2%;
+        &:hover{
+            cursor:pointer;
+        }
     }
 
     //Fin modif

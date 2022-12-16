@@ -214,13 +214,22 @@ addition.addEventListener("click",()=>{
             }
         })
         name_task.addEventListener("mouseenter", function( ev ) {
+            let tailleEcran = window.matchMedia("(min-width:1024px)");
+            if (!tailleEcran.matches){
             ev.target.style.cursor = "pointer";
             ev.target.style.fontWeight = "500";
+            }
         })
         name_task.addEventListener("mouseleave", function( ev ) {
+            let tailleEcran = window.matchMedia("(min-width:1024px)");
+            if (!tailleEcran.matches){
             ev.target.style.cursor = "default";
             ev.target.style.fontWeight = "400";
+            }
         })
+        /*icon.addEventListener('click',(e) => {
+
+        })*/
             
     }
 
