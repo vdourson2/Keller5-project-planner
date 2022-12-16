@@ -251,6 +251,20 @@ body{
     @include fonts (3vw, 300);
     text-align: center;
     margin-bottom: -5vw;
+    
+    //Mofifié par Vi
+    &__logo img{
+        filter: brightness(0) invert(1);
+        width : 40%;
+        max-width : 300px
+    }
+    &__icons img{
+        width : 5%;
+        max-width: 30px;
+    }
+
+    //Fin modif
+
 }
 
 //MediaQueries

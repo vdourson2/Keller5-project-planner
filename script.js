@@ -366,6 +366,7 @@ function delete_event(){
 delete_event()
 function delete_task(e){
     e.target.parentElement.parentElement.parentElement.remove()
+    count()
 }
 
 //change statut
