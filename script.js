@@ -78,6 +78,7 @@ const recup = (e) => {
     }
     //ajout delete_event
     delete_event()
+    change_statut()
     
     
     /*Local storage
@@ -154,6 +155,7 @@ addition.addEventListener("click",()=>{
         let divZoneModif = document.createElement("div");
         divZoneModif.className = "tasks__task--zoneModif";
         divGauche.appendChild(divZoneModif);
+        //Ajout de l'icone crayon
         let icon = document.createElement("img");
         icon.src = "./images/icons-pencil.webp";
         divZoneModif.appendChild(icon);
@@ -191,20 +193,24 @@ addition.addEventListener("click",()=>{
         task.appendChild(label_task)
         task.classList.add(`${label}`);
         //Création de l'évènement "agrandir quand on clique"
+        
         name_task.addEventListener('click', (e) =>{
-            if (description_task.classList.contains("displayNone")){
-                description_task.classList.replace("displayNone","displayBlock");
-                date_task.classList.replace("displayNone","displayBlock");
-                description_task.style.display = "block";
-                date_task.style.display = "block";
-                divZoneModif.style.display = "flex";
-            }
-            else {
-                description_task.classList.replace("displayBlock","displayNone");
-                date_task.classList.replace("displayBlock","displayNone");                
-                description_task.style.display = "none";
-                date_task.style.display = "none";
-                divZoneModif.style.display = "none";
+            let tailleEcran = window.matchMedia("(min-width:1024px)");
+            if (!tailleEcran.matches){
+                if (description_task.classList.contains("displayNone")){
+                    description_task.classList.replace("displayNone","displayBlock");
+                    date_task.classList.replace("displayNone","displayBlock");
+                    description_task.style.display = "block";
+                    date_task.style.display = "block";
+                    divZoneModif.style.display = "flex";
+                }
+                else {
+                    description_task.classList.replace("displayBlock","displayNone");
+                    date_task.classList.replace("displayBlock","displayNone");                
+                    description_task.style.display = "none";
+                    date_task.style.display = "none";
+                    divZoneModif.style.display = "none";
+                }
             }
         })
         name_task.addEventListener("mouseenter", function( ev ) {
@@ -359,7 +365,49 @@ function delete_event(){
 }
 delete_event()
 function delete_task(e){
-    e.target.parentElement.parentElement.remove()
+    e.target.parentElement.parentElement.parentElement.remove()
 }
+
+//change statut
+function change_statut(){
+    let task=document.getElementsByClassName("tasks__task")
+    for(let elem of task){
+    elem.firstChild.children[4].addEventListener("change",(e)=>{
+        if(e.target.value=="To do"){
+            if(!elem.classList.contains("to-do")){
+                elem.classList.remove("doing")
+                elem.classList.remove("done")
+                elem.classList.add("to-do")
+            }
+        }
+        else if (e.target.value=="Doing"){
+            if(!elem.classList.contains("doing")){
+                elem.classList.remove("to-do")
+                elem.classList.remove("done")
+                elem.classList.add("doing")
+            }
+        }
+        else if(e.target.value=="Done"){
+            if(!elem.classList.contains("done")){
+                elem.classList.remove("to-do")
+                elem.classList.remove("doing")
+                elem.classList.add("done")
+            }
+        }
+        console.log(elem.classList[1])
+        if (elem.classList[1] == "done"){
+            elem.children[1].style.backgroundImage = "url(./images/icons-validated.webp)";
+        }
+        else if (elem.classList[1]  == "doing"){
+            elem.children[1].style.backgroundImage = "url(./images/icons-in-progress.webp)";
+        }
+        else {
+            elem.children[1].style.backgroundImage = "url(./images/icons-cercle.webp)";
+        }
+
+    })
+    }
+}
+change_statut()
 
 

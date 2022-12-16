@@ -142,9 +142,7 @@ body .header__addition {
 }
 .categories__filter #categories__filter--select {
   text-align: center;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: #33534F;
   color: white;
   font-family: "Zen Kaku Gothic New", sans-serif;
@@ -372,9 +370,7 @@ body .header__addition {
   }
   .categories__filter #categories__filter--select {
     text-align: center;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    appearance: none;
     background-color: #33534F;
     color: white;
     font-family: "Zen Kaku Gothic New", sans-serif;
@@ -412,8 +408,11 @@ body .header__addition {
     font-size: 1vw;
     font-weight: 300;
   }
-  .tasks__task--description, .tasks__task--date, .tasks__task img {
+  .tasks__task--description, .tasks__task--date, .tasks__task--zoneModif {
     display: block;
+  }
+  .tasks__task--zoneModif {
+    display: flex;
   }
   .tasks__task img {
     width: 25px;
