@@ -79,13 +79,13 @@ body .header__addition {
   width: 80%;
   margin: 2.5vw 7vw;
   height: 3vh;
-  border-radius: 2vw;
+  border-radius: 1vw;
 }
 .form #formulaire .formulaire #form__description {
   height: 5vh;
 }
 .form #formulaire .formulaire #form__due, .form #formulaire .formulaire #form__label {
-  border-radius: 2vw;
+  border-radius: 1vw;
   height: 2.5vh;
 }
 .form #formulaire #submit {
@@ -142,7 +142,9 @@ body .header__addition {
 }
 .categories__filter #categories__filter--select {
   text-align: center;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #33534F;
   color: white;
   font-family: "Zen Kaku Gothic New", sans-serif;
@@ -191,7 +193,19 @@ body .header__addition {
   display: none;
 }
 .tasks__task--zoneModif {
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: baseline;
+  height: 20%;
+  width: 120%;
+  border-top: 2px solid #7DA39F;
+  padding-top: 2vw;
+  margin-top: 1vw;
+}
+.tasks__task--changeStatus {
+  border-radius: 2vw;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 3vw;
+  font-weight: 400;
 }
 .tasks__task img {
   width: 25px;
@@ -280,10 +294,14 @@ body .header__addition {
     background-color: #7DA39F;
   }
   .form {
+    display: none;
     position: absolute;
     width: 50%;
-    height: 80vw;
+    height: 35vw;
     background-color: #33534F;
+    border-top-right-radius: 5vw;
+    border-bottom-right-radius: 5vw;
+    margin-left: 10%;
   }
   .form h2 {
     text-align: center;
@@ -291,12 +309,13 @@ body .header__addition {
     font-family: "Zen Kaku Gothic New", sans-serif;
     font-size: 2vw;
     font-weight: 500;
+    padding-top: 2vw;
   }
   .form #formulaire {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 70%;
+    margin-top: 2vw;
   }
   .form #formulaire .formulaire {
     display: flex;
@@ -309,24 +328,31 @@ body .header__addition {
     font-weight: 400;
   }
   .form #formulaire .formulaire #form__name, .form #formulaire .formulaire #form__description {
-    width: 90%;
+    margin: 0.5vw 7vw;
+    height: 3vh;
+    border-radius: 1vw;
   }
   .form #formulaire .formulaire #form__description {
-    width: 90%;
+    height: 8vh;
+  }
+  .form #formulaire .formulaire #form__due, .form #formulaire .formulaire #form__label {
+    border-radius: 1vw;
+    height: 2.5vh;
   }
   .form #formulaire #submit {
-    width: 20%;
+    width: 15%;
     align-self: center;
-    margin-top: 5vw;
+    margin-top: 0vw;
+    margin-bottom: 1vw;
     font-family: "Zen Kaku Gothic New", sans-serif;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-weight: 400;
   }
   .form__datelabel {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     align-items: flex-end;
   }
   .form__datelabel--date {
@@ -370,7 +396,9 @@ body .header__addition {
   }
   .categories__filter #categories__filter--select {
     text-align: center;
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     background-color: #33534F;
     color: white;
     font-family: "Zen Kaku Gothic New", sans-serif;
@@ -413,6 +441,16 @@ body .header__addition {
   }
   .tasks__task--zoneModif {
     display: flex;
+    height: 30%;
+    padding-top: 0vw;
+    margin-top: 1vw;
+  }
+  .tasks__task--changeStatus {
+    border-radius: 1vw;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 1vw;
+    font-weight: 400;
+    padding: 0;
   }
   .tasks__task img {
     width: 25px;

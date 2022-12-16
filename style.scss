@@ -88,14 +88,14 @@ body{
                 width: 80%;
                 margin: 2.5vw 7vw;
                 height: 3vh;
-                border-radius: 2vw
+                border-radius: 1vw
             }
             #form__description{
                 @extend #form__name;
                 height: 5vh;
             }
             #form__due {
-                border-radius: 2vw;
+                border-radius: 1vw;
                 height: 2.5vh;
             }
             #form__label {
@@ -207,7 +207,17 @@ body{
         }
         
         &--zoneModif{
-            justify-content : space-between;  
+            justify-content : space-around; 
+            align-items: baseline;
+            height: 20%; 
+            width: 120%;
+            border-top: 2px solid $blueClear;
+            padding-top: 2vw;
+            margin-top: 1vw;
+        }
+        &--changeStatus {
+            border-radius: 2vw;
+            @include fonts(3vw, 400);
         }
         //fin de la modif
         img{
@@ -298,21 +308,25 @@ body{
 
 //Style du formulaire
 .form{
-    //display: none;
+    display: none;
     position:absolute;
     width: 50%;
-    height: 80vw;
+    height: 35vw;
     background-color: $darkBlue;
+    border-top-right-radius: 5vw;
+    border-bottom-right-radius: 5vw;
+    margin-left: 10%;
     h2{
         text-align: center;
         color: white;
         @include fonts(2vw, 500);
+        padding-top: 2vw;
     }
     #formulaire{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 70%;
+        margin-top: 2vw;
         .formulaire{
             display: flex;
             flex-direction: column;
@@ -321,24 +335,35 @@ body{
             height: 100%;
             @include fonts(1.5vw, 400);
             #form__name{
-                width: 90%;
+                margin: 0.5vw 7vw;
+                height: 3vh;
+                border-radius: 1vw
             }
             #form__description{
-                width: 90%;
+                @extend #form__name;
+                height: 8vh;
+            }
+            #form__due {
+                border-radius: 1vw;
+                height: 2.5vh;
+            }
+            #form__label {
+                @extend #form__due;
             }
         }
         #submit{
-            width: 20%;
+            width: 15%;
             align-self: center;
-            margin-top: 5vw;
-            @include fonts(2vw, 400);
+            margin-top: 0vw;
+            margin-bottom: 1vw;
+            @include fonts(1.5vw, 400);
         }
     }
     &__datelabel{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 90%;
+        width: 100%;
         align-items: flex-end;
         &--date{
             display: flex;
@@ -431,6 +456,14 @@ body{
         }
         &--zoneModif{
             display:flex;
+            height: 30%;
+            padding-top: 0vw;
+            margin-top: 1vw;
+        }
+        &--changeStatus {
+            border-radius: 1vw;
+            @include fonts(1vw, 400);
+            padding: 0;
         }
         img{
             width:25px;
