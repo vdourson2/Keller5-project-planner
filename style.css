@@ -147,6 +147,9 @@ body .header__addition {
   display: flex;
   justify-content: space-between;
 }
+.tasks__task--divGauche {
+  width: 85%;
+}
 .tasks__task--name {
   font-weight: 400;
 }
