@@ -11,6 +11,7 @@
 $darkBlue : #33534F;
 $blue : #4D6D69;
 $blueClear : #7DA39F;
+$blueGreen : #478886;
 $font : "font-family: 'Zen Kaku Gothic New', sans-serif";
 
 //mixins
@@ -162,12 +163,14 @@ body{
 .tasks{
     &__task{
         width : 70%;
-        margin : 5vw auto;  
+        margin : 5vw 10vw 5vw 10vw;  
         padding : 4%;
         background-color: white;
-        border : 1px solid #478886;
+        border-left : 5px solid $blueGreen;
+        border-right : 5px solid $blueGreen;
+        border-bottom : 5px solid $blueGreen;
         border-radius : 20px;
-        box-shadow: 5px 5px 1px #478886;
+        box-shadow: 3px 3px 10px $blueGreen;
         display : flex;
         justify-content: space-between;
         &--divGauche{
@@ -191,10 +194,11 @@ body{
 
         }
         &--label {
-            width : 40px;
-            height : 40px;
+            width : 10%;
+            height : auto;
             background-position:center;
-            background-size : cover;
+            background-repeat: no-repeat;
+            background-size : contain;
         }
         &--time {
             @include fonts(3.5vw, 300);
@@ -368,37 +372,42 @@ body{
 //Style des cartes
 
 .tasks{
+    margin-left: 15vw;
+    margin-top: -50vw;
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgba(51, 83, 79, 0);
     &__task{
-        width : 10%;
-        margin : 5vw auto;  
-        padding : 4%;
-        background-color: white;
-        border : 1px solid #478886;
-        border-radius : 20px;
-        box-shadow: 5px 5px 1px #478886;
-        display : flex;
-        justify-content: space-between;
+        width : 20%;
+        margin: 2vw;
+        padding: 2vw;
         &--divGauche{
             width : 85%;
         }
         &--name{
-            @include fonts(4vw, 400);
+            @include fonts(1.5vw, 400);
         }
         &--description, &--date{
             padding-left : 2vw;
-            @include fonts(3vw, 300);
+            @include fonts(1vw, 300);
         }
-        &--description, &--date{
-            display : none;
+        &--description, &--date, img{
+            display : block;
+        }
+        img{
+            width:25px;
+            height:25px;
+            padding-left : 2vw;
+            padding-top : 2vw;
         }
         &--label {
-            width : 40px;
-            height : 40px;
-            background-position:center;
-            background-size : cover;
+            width : 15%;
+            height : auto;
+            margin-top: -5vw;
         }
         &--time {
-            @include fonts(3.5vw, 300);
+            @include fonts(1vw, 300);
             padding-left : 2vw;
         }
     }    
