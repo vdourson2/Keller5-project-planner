@@ -44,6 +44,7 @@ const recup = (e) => {
     create_task(nameOr, descriptionOr, dueOr, labelOr);
     //Ajout d'une tache dans le compteur
     count()
+    //tri alphabet+temps
     let tasks=document.getElementsByClassName("tasks")[0]
     if(tasks.classList.contains("alphabet")){
         tri_alphabet()
@@ -75,8 +76,9 @@ submit.addEventListener('click', recup);
 //affichage form
 addition=document.getElementsByClassName("header__addition")[0]
 form=document.getElementsByClassName("form")[0]
+console.log(form.style)
 addition.addEventListener("click",()=>{
-    if(form.style.display=="none"){
+    if(form.style.display=="none" || form.style.display==""){
         form.style.display="block";
     }
     else{
