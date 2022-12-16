@@ -52,6 +52,8 @@ const recup = (e) => {
     else if(tasks.classList.contains("time")){
         tri_time()
     }
+    //ajout delete_event
+    delete_event()
     
     
     /*Local storage
@@ -76,7 +78,6 @@ submit.addEventListener('click', recup);
 //affichage form
 addition=document.getElementsByClassName("header__addition")[0]
 form=document.getElementsByClassName("form")[0]
-console.log(form.style)
 addition.addEventListener("click",()=>{
     if(form.style.display=="none" || form.style.display==""){
         form.style.display="block";
@@ -307,5 +308,16 @@ function day(date_end){
 }
 
 
+//delete task
+function delete_event(){
+    let delete_icon=document.getElementsByClassName("tasks__task--delete");
+    for(let elem of delete_icon){
+        elem.addEventListener("click",delete_task);
+    }
+}
+delete_event()
+function delete_task(e){
+    e.target.parentElement.parentElement.remove()
+}
 
 

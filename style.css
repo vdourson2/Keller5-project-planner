@@ -131,9 +131,7 @@ body .header__addition {
 }
 .categories__filter #categories__filter--select {
   text-align: center;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: rgb(51, 83, 79);
   color: white;
   font-family: "Zen Kaku Gothic New", sans-serif;
@@ -337,9 +335,7 @@ body .header__addition {
   }
   .categories__filter #categories__filter--select {
     text-align: center;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    appearance: none;
     background-color: #33534F;
     color: white;
     font-family: "Zen Kaku Gothic New", sans-serif;
