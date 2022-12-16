@@ -89,6 +89,7 @@ addition.addEventListener("click",()=>{
         tasks.appendChild(task);
         //Création div de gauche
         let divGauche = document.createElement("div");
+        divGauche.className = "tasks__task--divGauche";
         task.appendChild(divGauche);
         //creation nom
         let name_task=document.createElement("h2");
@@ -154,7 +155,7 @@ addition.addEventListener("click",()=>{
         })
             
     }
-    }
+    
 
 //gestion nombre de tache
 function count(){
