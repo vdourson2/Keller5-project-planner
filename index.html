@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Project-Planner</title>
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="script.js"></script>
+    </head>
+
+    <body>
+        <header class="header">
+            <img src="images/ZenDiary-logo.webp" alt="logo" class="header__img">
+            <h1 class="header__hello">Hello !</h1> 
+            <p class="header__para"></p>
+            <div class="header__addition--bg">    
+            <img src="images/icons-addition.webp" alt="addition" class="header__addition">
+            </div>   
+        </header>
+        <main class="main">
+            <div class="form">
+                <h2>New Task ToDo</h2>
+                <hr>
+                <form id="formulaire">
+                    <div class="formulaire">
+                        <label for="Name">Title Task</label>
+                        <input type="text" name="name" id="form__name" placeholder="Add Task Name">
+                        <label for="description">Description</label>
+                        <textarea id="form__description" name="description" placeholder="Add Description" ></textarea>                    
+                        <div class="form__datelabel">
+                            <div class="form__datelabel--date">
+                                <label for="Due_date">Date</label>                          
+                                <input type="date" id="form__due" name="date">
+                            </div>
+                            <div class="form__datelabel--label">
+                                <label for="Status">Status</label>
+                                <select name="label" id="form__label">
+                                    <option value="to-do" selected>to do</option>
+                                    <option value="doing">doing</option>
+                                    <option value="done">done</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="submit">Create</button>
+                </form>
+            </div>
+            <div class="categories">
+                <div class="categories__sort">
+                    <img src="images/icons-alphabetic-order.webp" alt="alphabet" class="categories__sort--alphabet">
+                    <img src="images/icons-time-order.webp" alt="time"class="categories__sort--time">
+                </div>
+                <div class="categories__filter">
+                    <select name="filter" id="categories__filter--select">
+                        <option value="All" selected="selected">All</option>
+                        <option value="to-do">to do</option>
+                        <option value="doing">doing</option>
+                        <option value="done">done</option>
+                    </select>
+                </div>
+            </div>
+            <div class="tasks">
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__logo">
+                <img src="./images/ZenDiary-logo.webp" alt="logo">
+            </div>
+            <div class="footer__icons">
+                <a href="#"><img src="./images/icon-facebook-blanc.svg" alt="fb"></a>
+                <a href="#"><img src="./images/icon-instagram-blanc.svg" alt="fb"></a>
+                <a href="#"><img src="./images/icon-twitter-blanc.svg" alt="fb"></a>
+            </div>
+        </footer>
+    </body>
+
+</html>
