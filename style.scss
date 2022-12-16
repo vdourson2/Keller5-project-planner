@@ -66,6 +66,7 @@ body{
     width: 100%;
     height: 80vw;
     background-color: $darkBlue;
+    z-index: 10;
     h2{
         text-align: center;
         color: white;
@@ -136,9 +137,7 @@ body{
         img{
             width: 33%;
             height: 100%;
-            &:hover{
-                filter: brightness(0) invert(1);
-            }
+            cursor: pointer;
         }
     }
     &__filter{
@@ -181,8 +180,15 @@ body{
             padding-left : 2vw;
             @include fonts(3vw, 300);
         }
-        &--description, &--date{
+        &--description, &--date, img{
             display : none;
+        }
+        img{
+            width:25px;
+            height:25px;
+            padding-left : 2vw;
+            padding-top : 2vw;
+
         }
         &--label {
             width : 40px;

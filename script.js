@@ -44,6 +44,15 @@ const recup = (e) => {
     create_task(nameOr, descriptionOr, dueOr, labelOr);
     //Ajout d'une tache dans le compteur
     count()
+    //tri alphabet+temps
+    let tasks=document.getElementsByClassName("tasks")[0]
+    if(tasks.classList.contains("alphabet")){
+        tri_alphabet()
+    }
+    else if(tasks.classList.contains("time")){
+        tri_time()
+    }
+    
     
     /*Local storage
     let tache = {
@@ -67,8 +76,9 @@ submit.addEventListener('click', recup);
 //affichage form
 addition=document.getElementsByClassName("header__addition")[0]
 form=document.getElementsByClassName("form")[0]
+console.log(form.style)
 addition.addEventListener("click",()=>{
-    if(form.style.display=="none"){
+    if(form.style.display=="none" || form.style.display==""){
         form.style.display="block";
     }
     else{
@@ -113,8 +123,15 @@ addition.addEventListener("click",()=>{
         divGauche.appendChild(Time_task);
         //ajout du texte à côté du temps restant
         let texteTpsRestant = document.createElement("span");
-        texteTpsRestant.textContent=" jours restants";
+        texteTpsRestant.textContent=" days left";
         Time_task.appendChild(texteTpsRestant);
+        //Ajout de zone de modification de fiche
+        let divZoneModif = document.createElement("div");
+        divZoneModif.className = "tasks__task--zoneModif";
+        divGauche.appendChild(divZoneModif);
+        let icon = document.createElement("img");
+        icon.src = "./images/icons-pencil.webp";
+        divZoneModif.appendChild(icon);
         //creation label
         let label_task=document.createElement("p")
         label_task.className="tasks__task--label"
@@ -125,7 +142,7 @@ addition.addEventListener("click",()=>{
             label_task.style.backgroundImage = "url(./images/icons-in-progress.webp)";
         }
         else {
-            label_task.style.backgroundImage = "url(./images/icons-not-validated.webp)";
+            label_task.style.backgroundImage = "url(./images/icons-cercle.webp)";
         }
         //label_task.textContent=label
         task.appendChild(label_task)
@@ -137,12 +154,14 @@ addition.addEventListener("click",()=>{
                 date_task.classList.replace("displayNone","displayBlock");
                 description_task.style.display = "block";
                 date_task.style.display = "block";
+                icon.style.display = "block";
             }
             else {
                 description_task.classList.replace("displayBlock","displayNone");
                 date_task.classList.replace("displayBlock","displayNone");                
                 description_task.style.display = "none";
                 date_task.style.display = "none";
+                icon.style.display = "none";
             }
         })
         name_task.addEventListener("mouseenter", function( ev ) {
@@ -194,6 +213,21 @@ function changeFilter(e){
 
 
 //Trier alphabet+temps
+function select_sort(){
+    let tasks=document.getElementsByClassName("tasks")[0]
+    let alpha=document.getElementsByClassName("categories__sort--alphabet")[0]
+    let temps=document.getElementsByClassName("categories__sort--time")[0]
+    if(tasks.classList.contains("alphabet")){
+        alpha.style.filter="brightness(0) invert(1)";
+        temps.style.filter="none";
+    }
+    else if(tasks.classList.contains("time")){
+        temps.style.filter="brightness(0) invert(1)";
+        alpha.style.filter="none";
+    }
+}
+select_sort()
+tri_time()
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -203,6 +237,11 @@ let sort_alphabet = document.getElementsByClassName("categories__sort--alphabet"
 sort_alphabet.addEventListener("click",tri_alphabet);
 function tri_alphabet(){
         tasks=document.getElementsByClassName("tasks")[0]
+        if(tasks.classList.contains("time")){
+            tasks.classList.remove("time")
+        }
+        tasks.classList.add("alphabet");
+        select_sort()
         list_task=document.getElementsByClassName("tasks__task")
         alphabet=[]
         for (let elem of list_task){
@@ -226,6 +265,11 @@ let sort_time = document.getElementsByClassName("categories__sort--time")[0];
 sort_time.addEventListener("click",tri_time);
 function tri_time(){
     tasks=document.getElementsByClassName("tasks")[0]
+    if(tasks.classList.contains("alphabet")){
+        tasks.classList.remove("alphabet")
+    }
+    tasks.classList.add("time");
+    select_sort()
     list_task=document.getElementsByClassName("tasks__task")
     time=[]
     for (let elem of list_task){
