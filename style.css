@@ -49,6 +49,7 @@ body .header__addition {
   height: 80vw;
   font-family: "Zen Kaku Gothic New", sans-serif;
   background-color: rgb(51, 83, 79);
+  z-index: 10;
 }
 .form h2 {
   text-align: center;
@@ -113,9 +114,7 @@ body .header__addition {
 .categories__sort img {
   width: 33%;
   height: 100%;
-}
-.categories__sort img:hover {
-  filter: brightness(0) invert(1);
+  cursor: pointer;
 }
 .categories__filter {
   margin: 2vw 5vw 0 0;

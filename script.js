@@ -44,6 +44,14 @@ const recup = (e) => {
     create_task(nameOr, descriptionOr, dueOr, labelOr);
     //Ajout d'une tache dans le compteur
     count()
+    let tasks=document.getElementsByClassName("tasks")[0]
+    if(tasks.classList.contains("alphabet")){
+        tri_alphabet()
+    }
+    else if(tasks.classList.contains("time")){
+        tri_time()
+    }
+    
     
     /*Local storage
     let tache = {
@@ -194,6 +202,21 @@ function changeFilter(e){
 
 
 //Trier alphabet+temps
+function select_sort(){
+    let tasks=document.getElementsByClassName("tasks")[0]
+    let alpha=document.getElementsByClassName("categories__sort--alphabet")[0]
+    let temps=document.getElementsByClassName("categories__sort--time")[0]
+    if(tasks.classList.contains("alphabet")){
+        alpha.style.filter="brightness(0) invert(1)";
+        temps.style.filter="none";
+    }
+    else if(tasks.classList.contains("time")){
+        temps.style.filter="brightness(0) invert(1)";
+        alpha.style.filter="none";
+    }
+}
+select_sort()
+tri_time()
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -203,6 +226,11 @@ let sort_alphabet = document.getElementsByClassName("categories__sort--alphabet"
 sort_alphabet.addEventListener("click",tri_alphabet);
 function tri_alphabet(){
         tasks=document.getElementsByClassName("tasks")[0]
+        if(tasks.classList.contains("time")){
+            tasks.classList.remove("time")
+        }
+        tasks.classList.add("alphabet");
+        select_sort()
         list_task=document.getElementsByClassName("tasks__task")
         alphabet=[]
         for (let elem of list_task){
@@ -226,6 +254,11 @@ let sort_time = document.getElementsByClassName("categories__sort--time")[0];
 sort_time.addEventListener("click",tri_time);
 function tri_time(){
     tasks=document.getElementsByClassName("tasks")[0]
+    if(tasks.classList.contains("alphabet")){
+        tasks.classList.remove("alphabet")
+    }
+    tasks.classList.add("time");
+    select_sort()
     list_task=document.getElementsByClassName("tasks__task")
     time=[]
     for (let elem of list_task){

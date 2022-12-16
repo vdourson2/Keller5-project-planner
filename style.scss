@@ -55,6 +55,7 @@ body{
     height: 80vw;
     font-family: 'Zen Kaku Gothic New', sans-serif ;
     background-color: rgba(51, 83, 79, 1);
+    z-index: 10;
     h2{
         text-align: center;
         font-size: 8vw;
@@ -124,9 +125,7 @@ body{
         img{
             width: 33%;
             height: 100%;
-            &:hover{
-                filter: brightness(0) invert(1);
-            }
+            cursor: pointer;
         }
     }
     &__filter{
