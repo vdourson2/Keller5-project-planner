@@ -220,12 +220,19 @@ body{
             border-radius: 2vw;
             @include fonts(3vw, 400);
         }
+        &--changeStatus, &--delete{
+            display : none;
+        } 
         //fin de la modif
         img{
             width:25px;
             height:25px;
             padding-left : 2vw;
             padding-top : 2vw;
+
+        &--changeStatus {
+            display : none;
+        }
 
         }
         &--label {

@@ -208,11 +208,17 @@ body .header__addition {
   font-size: 3vw;
   font-weight: 400;
 }
+.tasks__task--changeStatus, .tasks__task--delete {
+  display: none;
+}
 .tasks__task img {
   width: 25px;
   height: 25px;
   padding-left: 2vw;
   padding-top: 2vw;
+}
+.tasks__task img--changeStatus {
+  display: none;
 }
 .tasks__task--label {
   width: 10%;
