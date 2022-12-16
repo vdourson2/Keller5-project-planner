@@ -24,6 +24,30 @@ const base = [
         due : "2023-02-10",
         label : "to-do"
     },
+    {
+        name : "Initialisation",
+        description : "Démarrer le processus et créer les documents de base",
+        due : "2022-12-28",
+        label : "done"
+    },
+    {
+        name : "Répartition des tâches",
+        description : "Déterminer les différentes tâches à réaliser et dispatcher suivant les souhaits et les compétences",
+        due : "2023-01-15",
+        label : "doing" 
+    },
+    {
+        name : "Contact avec le client",
+        description : "Fixer un rendez-vous avec Monsieur Tartenpiont et voir avec lui les exigences au niveau du design",
+        due : "2023-01-15",
+        label : "doing"
+    },
+    {
+        name : "Présentation de l'avant-projet",
+        description : "Fixer une date et réunir toute l'équipe pour la présentation de l'avant-projet",
+        due : "2023-02-10",
+        label : "to-do"
+    },
 ]
 for (let b of base){
     create_task(b.name, b.description, b.due, b.label)
