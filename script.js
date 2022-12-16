@@ -78,6 +78,7 @@ const recup = (e) => {
     }
     //ajout delete_event
     delete_event()
+    change_statut()
     
     
     /*Local storage
@@ -364,7 +365,49 @@ function delete_event(){
 }
 delete_event()
 function delete_task(e){
-    e.target.parentElement.parentElement.remove()
+    e.target.parentElement.parentElement.parentElement.remove()
 }
+
+//change statut
+function change_statut(){
+    let task=document.getElementsByClassName("tasks__task")
+    for(let elem of task){
+    elem.firstChild.children[4].addEventListener("change",(e)=>{
+        if(e.target.value=="To do"){
+            if(!elem.classList.contains("to-do")){
+                elem.classList.remove("doing")
+                elem.classList.remove("done")
+                elem.classList.add("to-do")
+            }
+        }
+        else if (e.target.value=="Doing"){
+            if(!elem.classList.contains("doing")){
+                elem.classList.remove("to-do")
+                elem.classList.remove("done")
+                elem.classList.add("doing")
+            }
+        }
+        else if(e.target.value=="Done"){
+            if(!elem.classList.contains("done")){
+                elem.classList.remove("to-do")
+                elem.classList.remove("doing")
+                elem.classList.add("done")
+            }
+        }
+        console.log(elem.classList[1])
+        if (elem.classList[1] == "done"){
+            elem.children[1].style.backgroundImage = "url(./images/icons-validated.webp)";
+        }
+        else if (elem.classList[1]  == "doing"){
+            elem.children[1].style.backgroundImage = "url(./images/icons-in-progress.webp)";
+        }
+        else {
+            elem.children[1].style.backgroundImage = "url(./images/icons-cercle.webp)";
+        }
+
+    })
+    }
+}
+change_statut()
 
 
