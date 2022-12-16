@@ -214,6 +214,15 @@ body .header__addition {
   font-weight: 300;
   text-align: center;
 }
+.footer__logo img {
+  filter: brightness(0) invert(1);
+  width: 40%;
+  max-width: 300px;
+}
+.footer__icons img {
+  width: 5%;
+  max-width: 30px;
+}
 
 @media screen and (min-width: 1024px) {
   body {
