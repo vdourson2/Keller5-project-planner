@@ -42,6 +42,8 @@ const recup = (e) => {
     document.getElementById("formulaire").reset();
     //Appel de la fonction de création des cartes dans la div "task."
     create_task(nameOr, descriptionOr, dueOr, labelOr);
+    //Ajout d'une tache dans le compteur
+    count()
     
     /*Local storage
     let tache = {
@@ -61,6 +63,19 @@ let submit = document.getElementById("submit");
 /*local storage;
 let liste = [];*/
 submit.addEventListener('click', recup);
+
+//affichage form
+addition=document.getElementsByClassName("header__addition")[0]
+form=document.getElementsByClassName("form")[0]
+addition.addEventListener("click",()=>{
+    if(form.style.display=="none"){
+        form.style.display="block";
+    }
+    else{
+        form.style.display="none"
+    }
+})
+
 
 
 
@@ -139,45 +154,101 @@ submit.addEventListener('click', recup);
         })
             
     }
+    }
+
+//gestion nombre de tache
+function count(){
+    list_task=document.getElementsByClassName("tasks__task")
+    length=list_task.length
+    subtitle=document.getElementsByClassName("header__para")[0];
+    subtitle.textContent="You have "+ length +" tasks today ";
+}
+count()
 
 //Filtrer
-//sélectionner les filtres
+
 let filter = document.getElementById("categories__filter--select");
-//Appeler l'événement
 filter.addEventListener("change", changeFilter);
-//Fonction de l'événement
-function changeFilter(el){
-    let labelToDo = document.querySelectorAll(".to-do");
-    let labelDoing = document.querySelectorAll(".doing");
-    let labelDone = document.querySelectorAll(".done");
-    console.log(labelToDo);
-    console.log(labelDoing);
-    console.log(labelDone);
-    if (el.target.value == "All"){
-        labelToDo[0].style.display = "block";
-        labelDoing[1].style.display = "block";
-        labelDone[0].style.display = "block";
+function changeFilter(e){
+    list_task=document.getElementsByClassName("tasks__task")
+    for(elem of list_task){
+        elem.style.display="none"
     }
-    else if (el.target.value == "to-do"){
-        labelToDo[0].style.display = "block";
-        labelDoing[0].style.display = "none";
-        labelDone[0].style.display = "none";
-    }
-    else if (el.target.value == "doing"){
-        labelDoing[0].style.display = "block";
-        labelToDo[0].style.display = "none";
-        labelDone[0].style.display = "none";
-    }
-    else if (el.target.value == "done"){
-        labelDone[0].style.display = "block";
-        labelDoing[0].style.display = "none";
-        labelToDo[0].style.display = "none";
+    for (elem of list_task){
+        if(elem.classList.contains("to-do") && e.target.value=="to-do" ){
+            elem.style.display="flex"
+        }
+        else if(elem.classList.contains("doing") && e.target.value=="doing"){
+            elem.style.display="flex"
+        }
+        else if(elem.classList.contains("done") && e.target.value=="done"){
+            elem.style.display="flex"
+        }
+        else if(e.target.value=="All"){
+            elem.style.display="flex"
+        }
     }
 }
 
 
 
-//Trier
+//Trier alphabet+temps
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+let sort = document.getElementById("categories__sort--select");
+sort.addEventListener("change",tri);
+function tri(e){
+    if(e.target.value=="alphabet"){
+        tasks=document.getElementsByClassName("tasks")[0]
+        list_task=document.getElementsByClassName("tasks__task")
+        alphabet=[]
+        for (let elem of list_task){
+            name_task=elem.firstElementChild.children[0].textContent
+            alphabet.push(name_task.toLowerCase())
+        }
+        list_title_sort=alphabet.sort()
+        list_task_sort=[]
+        for(let title of list_title_sort){
+            for(let elem of list_task){
+                if(elem.firstElementChild.children[0].textContent.toLowerCase()==title)
+                    list_task_sort.push(elem)
+            }
+        }
+        removeAllChildNodes(tasks)
+        for(let elem of list_task_sort ){
+            tasks.appendChild(elem)
+        }
+    }
+    else if(e.target.value=="time"){
+        tasks=document.getElementsByClassName("tasks")[0]
+        list_task=document.getElementsByClassName("tasks__task")
+        time=[]
+        for (let elem of list_task){
+            time_task=elem.firstElementChild.children[2].textContent
+            date=new Date(time_task)
+            time.push(date)
+        }
+        list_time_sort=time.sort((a, b) => a-b);
+        list_task_sort=[]
+        for(let timing of list_time_sort){
+            for(let elem of list_task){
+                elem_time=new Date(elem.firstElementChild.children[2].textContent)
+                if(elem_time.getTime()==timing.getTime())
+                    list_task_sort.push(elem)
+            }
+        }
+        removeAllChildNodes(tasks)
+        for(let elem of list_task_sort ){
+            tasks.appendChild(elem)
+        }     
+    }
+}
+
+
+
 
 
 //retourne le nombre de jours entre maintenant et la date en argument.
