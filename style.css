@@ -247,6 +247,10 @@ body .header__addition {
 .footer__icons img {
   width: 5%;
   max-width: 30px;
+  padding: 0% 2%;
+}
+.footer__icons img:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1024px) {
