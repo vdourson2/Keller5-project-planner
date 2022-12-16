@@ -25,12 +25,11 @@ $font : "font-family: 'Zen Kaku Gothic New', sans-serif";
 body{
     width: 100%;
     height: 100%;
+    background-image: url("images/wallpaper-colors-mobile.webp");
+    background-size: contain;
     .header{
         width: 100%;
         height: 70vw;
-        background-image: url("images/wallpaper-colors-mobile.webp");
-        background-position: right;
-        background-size: cover;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -71,6 +70,7 @@ body{
         text-align: center;
         color: white;
         @include fonts(5vw, 500);
+        margin-bottom: 2vw;
     }
     #formulaire{
         display: flex;
@@ -80,29 +80,45 @@ body{
         .formulaire{
             display: flex;
             flex-direction: column;
-            align-items: center;
             color: white;
             height: 100%;
             @include fonts(3.5vw, 400);
+            margin: 2.5vw 7vw;
             #form__name{
-                width: 90%;
+                width: 80%;
+                margin: 2.5vw 7vw;
+                height: 3vh;
+                border-radius: 2vw
             }
             #form__description{
-                width: 90%;
+                @extend #form__name;
+                height: 5vh;
+            }
+            #form__due {
+                border-radius: 2vw;
+                height: 2.5vh;
+            }
+            #form__label {
+                @extend #form__due;
             }
         }
         #submit{
             width: 20%;
             align-self: center;
+            text-align: center;
             margin-top: 5vw;
-            @include fonts(4vw, 400);
+            border-radius: 5vw;
+            @include fonts(4vw, 300);
+            background-color: white;
+            border: 1vw solid $darkBlue;
+            box-shadow: 1.5vw 1.5vw 5vw $blueGreen;
         }
     }
     &__datelabel{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 90%;
+        width: 100%;
         align-items: flex-end;
         &--date{
             display: flex;
@@ -217,13 +233,14 @@ body{
 
 //Footer
 .footer {
-    width: 100%;
+    width: 95%;
     height: 10%;
     padding: 5vw 5vw 5vw 0vw;
     background-color: $blueClear;
     color: white;
     @include fonts (3vw, 300);
     text-align: center;
+    margin-bottom: -5vw;
 }
 
 //MediaQueries
@@ -232,11 +249,13 @@ body{
 body{
     width: 100%;
     height: 100%;
-    background-color:$blueClear;
+    background-image: url("images/wallpaper-colors-desktop2.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
     .header{
         width: 100%;
         height: 20vw;
-        background-image: url("images/wallpaper-colors-mobile.webp");
         background-position: right;
         background-size: cover;
         display: flex;
@@ -279,15 +298,15 @@ body{
 
 //Style du formulaire
 .form{
-    display: none;
+    //display: none;
     position:absolute;
-    width: 100%;
+    width: 50%;
     height: 80vw;
     background-color: $darkBlue;
     h2{
         text-align: center;
         color: white;
-        @include fonts(5vw, 500);
+        @include fonts(2vw, 500);
     }
     #formulaire{
         display: flex;
@@ -300,7 +319,7 @@ body{
             align-items: center;
             color: white;
             height: 100%;
-            @include fonts(3.5vw, 400);
+            @include fonts(1.5vw, 400);
             #form__name{
                 width: 90%;
             }
@@ -312,7 +331,7 @@ body{
             width: 20%;
             align-self: center;
             margin-top: 5vw;
-            @include fonts(4vw, 400);
+            @include fonts(2vw, 400);
         }
     }
     &__datelabel{

@@ -7,13 +7,12 @@
 body {
   width: 100%;
   height: 100%;
+  background-image: url("images/wallpaper-colors-mobile.webp");
+  background-size: contain;
 }
 body .header {
   width: 100%;
   height: 70vw;
-  background-image: url("images/wallpaper-colors-mobile.webp");
-  background-position: right;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -58,6 +57,7 @@ body .header__addition {
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 5vw;
   font-weight: 500;
+  margin-bottom: 2vw;
 }
 .form #formulaire {
   display: flex;
@@ -68,32 +68,44 @@ body .header__addition {
 .form #formulaire .formulaire {
   display: flex;
   flex-direction: column;
-  align-items: center;
   color: white;
   height: 100%;
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 3.5vw;
   font-weight: 400;
+  margin: 2.5vw 7vw;
 }
-.form #formulaire .formulaire #form__name {
-  width: 90%;
+.form #formulaire .formulaire #form__name, .form #formulaire .formulaire #form__description {
+  width: 80%;
+  margin: 2.5vw 7vw;
+  height: 3vh;
+  border-radius: 2vw;
 }
 .form #formulaire .formulaire #form__description {
-  width: 90%;
+  height: 5vh;
+}
+.form #formulaire .formulaire #form__due, .form #formulaire .formulaire #form__label {
+  border-radius: 2vw;
+  height: 2.5vh;
 }
 .form #formulaire #submit {
   width: 20%;
   align-self: center;
+  text-align: center;
   margin-top: 5vw;
+  border-radius: 5vw;
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 4vw;
-  font-weight: 400;
+  font-weight: 300;
+  background-color: white;
+  border: 1vw solid #33534F;
+  box-shadow: 1.5vw 1.5vw 5vw #478886;
 }
 .form__datelabel {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
   align-items: flex-end;
 }
 .form__datelabel--date {
@@ -204,7 +216,7 @@ body .header__addition {
 }
 
 .footer {
-  width: 100%;
+  width: 95%;
   height: 10%;
   padding: 5vw 5vw 5vw 0vw;
   background-color: #7DA39F;
@@ -213,18 +225,21 @@ body .header__addition {
   font-size: 3vw;
   font-weight: 300;
   text-align: center;
+  margin-bottom: -5vw;
 }
 
 @media screen and (min-width: 1024px) {
   body {
     width: 100%;
     height: 100%;
-    background-color: #7DA39F;
+    background-image: url("images/wallpaper-colors-desktop2.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
   }
   body .header {
     width: 100%;
     height: 20vw;
-    background-image: url("images/wallpaper-colors-mobile.webp");
     background-position: right;
     background-size: cover;
     display: flex;
@@ -267,9 +282,8 @@ body .header__addition {
     background-color: #7DA39F;
   }
   .form {
-    display: none;
     position: absolute;
-    width: 100%;
+    width: 50%;
     height: 80vw;
     background-color: #33534F;
   }
@@ -277,7 +291,7 @@ body .header__addition {
     text-align: center;
     color: white;
     font-family: "Zen Kaku Gothic New", sans-serif;
-    font-size: 5vw;
+    font-size: 2vw;
     font-weight: 500;
   }
   .form #formulaire {
@@ -293,10 +307,10 @@ body .header__addition {
     color: white;
     height: 100%;
     font-family: "Zen Kaku Gothic New", sans-serif;
-    font-size: 3.5vw;
+    font-size: 1.5vw;
     font-weight: 400;
   }
-  .form #formulaire .formulaire #form__name {
+  .form #formulaire .formulaire #form__name, .form #formulaire .formulaire #form__description {
     width: 90%;
   }
   .form #formulaire .formulaire #form__description {
@@ -307,7 +321,7 @@ body .header__addition {
     align-self: center;
     margin-top: 5vw;
     font-family: "Zen Kaku Gothic New", sans-serif;
-    font-size: 4vw;
+    font-size: 2vw;
     font-weight: 400;
   }
   .form__datelabel {
